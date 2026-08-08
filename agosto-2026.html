@@ -1,0 +1,2400 @@
+<!doctype html>
+<!--
+  ============================================================================
+  CARTA MENSUAL DEL GOBERNADOR · DISTRITO ROTARIO 7000 (Puerto Rico)
+  Año rotario 2026-2027 · Lema: "Genera un impacto duradero / Create Lasting Impact"
+  EDICIÓN: AGOSTO 2026 · Mes de la Membresía y la Creación de Nuevos Clubes
+  ============================================================================
+  PLANTILLA REUTILIZABLE. Cada mes solo debes editar los bloques rotulados en
+  el código con el texto  EDITAR CADA MES  (busca esa etiqueta; cada bloque va
+  entre una línea de apertura y otra de cierre, marcadas con flechas).
+
+  Zonas editables por mes:
+    1) MES        : texto del mes en el encabezado (ej. "Septiembre 2026").
+    2) FOTO       : imagen del gobernador (base64 o URL), clase gob__foto.
+    3) ABSTRACT   : resumen en inglés (sección abstract).
+    4) INTRO      : párrafo de entrada bajo el encabezado.
+    5) TARJETAS   : contenido de las cuatro tarjetas del recuadro destacado.
+    6) DESTACADO  : recuadro de la cita / mensaje central del mes.
+    7) DISCURSO   : cuerpo del acordeón (secciones I a VII).
+    8) SECCIONES  : EPIC, visitas, asistentes y actividades.
+    9) FIRMA      : línea de autoría/cierre en el pie (déjala como te la den).
+
+  Lo que NO cambia mes a mes: paleta, tipografía, estructura, pie institucional.
+  ============================================================================
+-->
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="darkreader-lock" />
+    <title>Carta del Gobernador · Agosto 2026 · Distrito Rotario 7000</title>
+    <meta name="description" content="Carta mensual del Gobernador del Distrito Rotario 7000 (Puerto Rico). Agosto 2026: Mes de la Membresía y la Creación de Nuevos Clubes." />
+    <meta name="author" content="Distrito Rotario 7000" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /* ============================ TOKENS ============================ */
+      :root {
+        color-scheme: light only; /* la carta se ve siempre en claro, sin inversion */
+        /* --- Paleta oficial Rotary (accesible AA) --- */
+        --azul: #17458f; /* Rotary Royal Blue  */
+        --azul-prof: #0b2c63; /* azul profundo (texto sobre claro / fondos) */
+        --azur: #005daa; /* Rotary Azure */
+        --oro: #f7a81b; /* Rotary Gold */
+        --oro-osc: #8a5a00; /* oro oscuro para texto sobre claro (AA) */
+        --turquesa: #00778b; /* acento 3 (AA con blanco) */
+        --violeta: #6d2c82; /* acento 4 (AA con blanco) */
+
+        /* --- Neutros --- */
+        --tinta: #14171c; /* texto principal */
+        --tinta-suave: #4a4a4a; /* texto secundario (>=4.5:1) */
+        --papel: #fbfaf6; /* fondo página */
+        --panel: #ffffff; /* tarjetas */
+        --crema: #f3efe4; /* paneles suaves */
+        --linea: #e4decf; /* bordes suaves */
+
+        /* --- Tipografía --- */
+        --serif: 'Merriweather', Georgia, 'Times New Roman', serif;
+        --sans: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+        --radio: 14px;
+        --sombra: 0 6px 22px rgba(11, 44, 99, 0.1);
+        --sombra-alta: 0 14px 40px rgba(11, 44, 99, 0.16);
+        --ancho: 940px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--papel);
+        color: var(--tinta);
+        font-family: var(--sans);
+        font-size: 18px;
+        line-height: 1.7;
+      }
+      p {
+        margin: 0 0 1.05em;
+      }
+      a {
+        color: var(--azur);
+      }
+      a:focus-visible,
+      summary:focus-visible,
+      .pilar:focus-visible {
+        outline: 3px solid var(--oro);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      /* Cinta superior tricolor (guiño a la rueda rotaria) */
+      .cinta {
+        height: 8px;
+        background: linear-gradient(90deg, var(--azul) 0 40%, var(--azur) 40% 65%, var(--oro) 65% 100%);
+      }
+
+      .envoltura {
+        max-width: var(--ancho);
+        margin: 0 auto;
+        padding: 0 22px;
+      }
+
+      /* ============================ ENCABEZADO ============================ */
+      .hero {
+        background: radial-gradient(circle at 88% -10%, rgba(247, 168, 27, 0.28), transparent 42%), linear-gradient(135deg, var(--azul) 0%, var(--azur) 68%, var(--azul-prof) 100%);
+        color: #fff;
+        padding: 38px 0 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* engranaje decorativo (no es el emblema oficial; solo motivo gráfico) */
+      .hero__gear {
+        position: absolute;
+        right: -60px;
+        top: -60px;
+        width: 260px;
+        height: 260px;
+        opacity: 0.1;
+        color: #fff;
+        pointer-events: none;
+      }
+      .hero__grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 26px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .eyebrow {
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        color: var(--oro);
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 6px;
+      }
+      .eyebrow::before {
+        content: '';
+        width: 26px;
+        height: 2px;
+        background: var(--oro);
+        display: inline-block;
+      }
+      .hero h1 {
+        font-family: var(--serif);
+        font-weight: 900;
+        line-height: 1.08;
+        font-size: clamp(1.9rem, 5vw, 3rem);
+        margin: 0.1em 0 0.35em;
+      }
+      .hero__mes {
+        display: inline-block;
+        font-family: var(--sans);
+        font-weight: 700;
+        background: var(--oro);
+        color: var(--azul-prof);
+        padding: 5px 16px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+      }
+      .hero__lema {
+        margin-top: 16px;
+        font-size: 1.02rem;
+        line-height: 1.5;
+        max-width: 44ch;
+        color: #eaf1fb;
+      }
+      .hero__lema b {
+        color: #fff;
+      }
+      .hero__lema .en {
+        font-style: italic;
+        color: var(--oro);
+      }
+
+      /* Foto del gobernador */
+      .gob {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+      }
+      .gob__marco {
+        width: 172px;
+        height: 172px;
+        border-radius: 50%;
+        padding: 6px;
+        background: conic-gradient(from 210deg, var(--oro), #fff5, var(--oro));
+        box-shadow: var(--sombra-alta);
+      }
+      .gob__foto {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--azul-prof);
+        display: block;
+      }
+      .gob__nombre {
+        font-family: var(--serif);
+        font-weight: 700;
+        color: #fff;
+        font-size: 1.08rem;
+        line-height: 1.25;
+      }
+      .gob__cargo {
+        font-size: 0.82rem;
+        color: #cfe0f5;
+        letter-spacing: 0.02em;
+      }
+
+      /* ============================ CUERPO ============================ */
+      main {
+        padding: 44px 0 10px;
+      }
+      .seccion + .seccion {
+        margin-top: 40px;
+      }
+
+      .rotulo {
+        font-family: var(--sans);
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 0.74rem;
+        color: var(--oro-osc);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 14px;
+      }
+      .rotulo::after {
+        content: '';
+        flex: 1;
+        height: 2px;
+        background: var(--linea);
+      }
+
+      /* Abstract inglés */
+      .abstract {
+        background: var(--azul-prof);
+        color: #eaf1fb;
+        border-radius: var(--radio);
+        padding: 26px 28px;
+        box-shadow: var(--sombra);
+        position: relative;
+        overflow: hidden;
+      }
+      .abstract::before {
+        content: 'EN';
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 2.4rem;
+        color: rgba(247, 168, 27, 0.28);
+        letter-spacing: 0.05em;
+      }
+      .abstract .rotulo {
+        color: var(--oro);
+      }
+      .abstract .rotulo::after {
+        background: rgba(255, 255, 255, 0.22);
+      }
+      .abstract h2 {
+        font-family: var(--serif);
+        color: #fff;
+        font-size: 1.25rem;
+        margin: 0.1em 0 0.5em;
+      }
+      .abstract p {
+        color: #dce7f6;
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+      .abstract p:last-child {
+        margin-bottom: 0;
+      }
+      .abstract b {
+        color: var(--oro);
+      }
+
+      /* Intro */
+      .intro {
+        font-family: var(--serif);
+        font-size: 1.12rem;
+        line-height: 1.72;
+        color: #ffffff;
+        font-weight: 400;
+        background: var(--azul);
+        border-left: 8px solid var(--oro);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        padding: 24px 28px;
+      }
+      .intro .drop::first-letter {
+        float: left;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 3.4rem;
+        line-height: 0.82;
+        padding: 6px 12px 0 0;
+        color: var(--oro);
+      }
+
+      /* Imagen destacada de sección */
+      .banner {
+        margin: 0 0 18px;
+      }
+      .banner img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radio);
+        border: 1px solid var(--linea);
+        box-shadow: var(--sombra);
+        background: var(--panel);
+      }
+      .banner figcaption {
+        font-size: 0.85rem;
+        color: var(--tinta-suave);
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      /* ---- RECUADRO 1: Cuatro acciones del mes ---- */
+      .pilares-box {
+        background: var(--azul-prof);
+        border: 0;
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        padding: 26px 24px 28px;
+      }
+      .pilares-box__tit {
+        font-family: var(--serif);
+        font-weight: 900;
+        color: #ffffff;
+        font-size: 1.45rem;
+        margin: 0 0 4px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .pilares-box__sub {
+        color: #cfe0f5;
+        margin: 0 0 20px;
+        font-size: 0.98rem;
+      }
+      .pilares {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .pilar {
+        border-radius: 12px;
+        padding: 18px 18px 18px 20px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        border-left: 6px solid rgba(255, 255, 255, 0.55);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+      }
+      .pilar__n {
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 2.6rem;
+        line-height: 1;
+        opacity: 0.32;
+        position: absolute;
+        right: 14px;
+        top: 8px;
+      }
+      .pilar h3 {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 1.08rem;
+        margin: 0 0 6px;
+        max-width: 18ch;
+      }
+      .pilar p {
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.94);
+      }
+      .pilar--1 {
+        background: #a05a00;
+        color: #ffffff;
+      }
+      .pilar--1 .pilar__n {
+        opacity: 0.34;
+        color: #ffffff;
+      }
+      .pilar--1 p {
+        color: #ffffff;
+      }
+      .pilar--1 h3 {
+        color: #ffffff;
+      }
+      .pilar--2 {
+        background: var(--azul);
+      }
+      .pilar--3 {
+        background: var(--turquesa);
+      }
+      .pilar--4 {
+        background: var(--violeta);
+      }
+
+      /* ---- RECUADRO 2: Cita destacada del mes ---- */
+      .promesa {
+        background: var(--turquesa);
+        border-left: 8px solid var(--oro);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        padding: 26px 28px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 22px;
+        align-items: start;
+      }
+      .promesa__icono {
+        font-size: 2.2rem;
+        background: var(--oro);
+        color: #0b2c63;
+        width: 62px;
+        height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        box-shadow: var(--sombra);
+        flex-shrink: 0;
+      }
+      .promesa h2 {
+        font-family: var(--serif);
+        color: #ffffff;
+        font-size: 1.32rem;
+        margin: 0 0 8px;
+        line-height: 1.25;
+      }
+      .promesa p {
+        color: #eaf7f9;
+      }
+      .promesa p:last-child {
+        margin-bottom: 0;
+      }
+      .promesa .cita {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 1.05rem;
+      }
+      .promesa .autor {
+        display: block;
+        font-family: var(--sans);
+        font-style: normal;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 0.9rem;
+        margin-top: 6px;
+      }
+
+      /* ---- ACORDEÓN ---- */
+      .discurso {
+        border-radius: var(--radio);
+        overflow: hidden;
+        box-shadow: var(--sombra);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      .discurso details {
+        background: var(--azul-prof);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      .discurso details:last-child {
+        border-bottom: 0;
+      }
+      .discurso summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 22px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--serif);
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 1.08rem;
+        transition: background 0.18s ease;
+      }
+      .discurso summary::-webkit-details-marker {
+        display: none;
+      }
+      .discurso summary:hover {
+        background: #0e3573;
+      }
+      .discurso details[open] > summary {
+        background: var(--azul);
+        color: #fff;
+      }
+      .discurso summary .num {
+        flex-shrink: 0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--oro);
+        color: var(--azul-prof);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 0.95rem;
+        font-family: var(--sans);
+      }
+      .discurso details[open] > summary .num {
+        background: #fff;
+        color: var(--azul);
+      }
+      .discurso summary .chev {
+        margin-left: auto;
+        transition: transform 0.2s ease;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+      .discurso details[open] > summary .chev {
+        transform: rotate(180deg);
+      }
+      .discurso .cuerpo {
+        padding: 8px 24px 24px;
+        font-size: 1.02rem;
+        line-height: 1.72;
+        color: #eaf1fb;
+        font-weight: 400;
+      }
+      .discurso .cuerpo p:last-child {
+        margin-bottom: 0;
+      }
+      .discurso .cuerpo strong {
+        color: var(--oro);
+      }
+      .discurso .cuerpo a {
+        color: var(--oro);
+        font-weight: 600;
+      }
+
+      /* Botones abrir / cerrar todo */
+      .controles {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 0 0 12px;
+      }
+      .btn-mini {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.82rem;
+        background: var(--panel);
+        color: var(--azul);
+        border: 2px solid var(--azul);
+        border-radius: 999px;
+        padding: 6px 16px;
+        cursor: pointer;
+      }
+      .btn-mini:hover {
+        background: var(--azul);
+        color: #fff;
+      }
+      .btn-mini:focus-visible {
+        outline: 3px solid var(--oro);
+        outline-offset: 2px;
+      }
+
+      /* ---- EPIC Award ---- */
+      .epic {
+        background: var(--panel);
+        border: 1px solid var(--linea);
+        border-left: 8px solid var(--violeta);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        padding: 24px 26px;
+      }
+      .epic h2 {
+        font-family: var(--serif);
+        color: var(--azul-prof);
+        font-size: 1.32rem;
+        margin: 0 0 10px;
+        line-height: 1.3;
+      }
+      .aviso {
+        background: var(--crema);
+        border-left: 6px solid var(--oro-osc);
+        border-radius: 10px;
+        padding: 14px 18px;
+        margin: 16px 0 0;
+        color: var(--tinta);
+        font-size: 0.98rem;
+      }
+      .aviso p:last-child {
+        margin-bottom: 0;
+      }
+      .btn-enlace {
+        display: inline-block;
+        margin-top: 14px;
+        background: var(--azul);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.94rem;
+        padding: 11px 20px;
+        border-radius: 999px;
+      }
+      .btn-enlace:hover {
+        background: var(--azul-prof);
+        text-decoration: underline;
+      }
+
+      /* ---- Lista de recursos ---- */
+      .recursos {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .recursos li {
+        border-left: 4px solid var(--turquesa);
+        padding: 2px 0 2px 14px;
+      }
+      .recursos a {
+        font-weight: 700;
+      }
+      .recursos .detalle {
+        display: block;
+        color: var(--tinta-suave);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      /* ---- Tablas ---- */
+      .tabla-caja {
+        background: var(--panel);
+        border: 1px solid var(--linea);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.98rem;
+      }
+      caption {
+        caption-side: top;
+        text-align: left;
+        font-family: var(--serif);
+        font-weight: 700;
+        color: var(--azul-prof);
+        font-size: 1.05rem;
+        padding: 18px 20px 10px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 11px 20px;
+        border-bottom: 1px solid var(--linea);
+      }
+      thead th {
+        background: var(--azul-prof);
+        color: #ffffff;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border-bottom: 0;
+      }
+      tbody tr:nth-child(even) {
+        background: #f6f4ec;
+      }
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      td.fecha {
+        font-weight: 700;
+        color: var(--azul);
+        white-space: nowrap;
+      }
+
+      /* ---- Asistentes ---- */
+      .equipo--jefe {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-bottom: 16px;
+      }
+      .persona {
+        background: var(--panel);
+        border: 1px solid var(--linea);
+        border-top: 5px solid var(--azur);
+        border-radius: var(--radio);
+        box-shadow: var(--sombra);
+        padding: 16px 14px;
+        text-align: center;
+      }
+      .persona--jefe {
+        border-top-color: var(--oro-osc);
+      }
+      .persona__foto,
+      .persona__inicial {
+        width: 84px;
+        height: 84px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 10px;
+        border: 3px solid var(--azul-prof);
+        background: var(--crema);
+      }
+      .persona__inicial {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 1.6rem;
+        color: var(--azul-prof);
+        background: var(--crema);
+      }
+      .persona__area {
+        display: inline-block;
+        background: var(--azul-prof);
+        color: #ffffff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 2px 11px;
+        border-radius: 999px;
+        margin-bottom: 6px;
+      }
+      .persona__nombre {
+        font-family: var(--serif);
+        font-weight: 700;
+        color: var(--azul-prof);
+        font-size: 0.98rem;
+        line-height: 1.25;
+        margin: 0;
+      }
+      .persona__club {
+        color: var(--tinta-suave);
+        font-size: 0.82rem;
+        line-height: 1.35;
+        margin: 2px 0 6px;
+      }
+      .persona__correo {
+        font-size: 0.8rem;
+        line-height: 1.35;
+        word-break: break-word;
+        margin: 0;
+      }
+
+      /* ---- Carrusel de asistentes ---- */
+      .carrusel__pista {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 4px 2px 14px;
+      }
+      .carrusel__pista:focus-visible {
+        outline: 3px solid var(--oro);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      .carrusel__pista > .persona {
+        flex: 0 0 calc((100% - 32px) / 3);
+        scroll-snap-align: start;
+      }
+      .carrusel__mandos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn-carr {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.85rem;
+        background: var(--panel);
+        color: var(--azul);
+        border: 2px solid var(--azul);
+        border-radius: 999px;
+        padding: 6px 16px;
+        cursor: pointer;
+        line-height: 1.4;
+      }
+      .btn-carr:hover {
+        background: var(--azul);
+        color: #ffffff;
+      }
+      .btn-carr:focus-visible {
+        outline: 3px solid var(--oro);
+        outline-offset: 2px;
+      }
+      .carrusel__estado {
+        font-size: 0.85rem;
+        color: var(--tinta-suave);
+        margin: 0;
+        min-width: 9ch;
+        text-align: center;
+        font-weight: 600;
+      }
+      @media (max-width: 980px) {
+        .carrusel__pista > .persona {
+          flex-basis: calc((100% - 16px) / 2);
+        }
+      }
+      @media (max-width: 620px) {
+        .carrusel__pista > .persona {
+          flex-basis: 100%;
+        }
+      }
+
+      /* ---- Actividades ---- */
+      .agenda {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+      .agenda li {
+        background: var(--panel);
+        border: 1px solid var(--linea);
+        border-left: 6px solid var(--turquesa);
+        border-radius: 12px;
+        padding: 14px 18px;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+      .agenda li.tentativa {
+        border-left-color: var(--oro-osc);
+      }
+      .agenda .cuando {
+        font-weight: 700;
+        color: var(--azul-prof);
+        font-size: 0.95rem;
+      }
+      .agenda .que {
+        font-size: 0.98rem;
+      }
+      .agenda .detalle {
+        display: block;
+        color: var(--tinta-suave);
+        font-size: 0.88rem;
+        margin-top: 2px;
+      }
+
+      /* Cierre / conclusión destacada */
+      .cierre {
+        text-align: center;
+        background: var(--azul);
+        color: #fff;
+        border-radius: var(--radio);
+        padding: 34px 28px;
+        box-shadow: var(--sombra-alta);
+        position: relative;
+        overflow: hidden;
+      }
+      .cierre::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% -20%, rgba(247, 168, 27, 0.3), transparent 55%);
+      }
+      .cierre p {
+        position: relative;
+        font-family: var(--serif);
+        font-size: 1.35rem;
+        line-height: 1.5;
+        margin: 0;
+        font-weight: 700;
+      }
+      .cierre .firma-lema {
+        position: relative;
+        display: block;
+        margin-top: 14px;
+        color: var(--oro);
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        font-family: var(--sans);
+        text-transform: uppercase;
+      }
+
+      /* ============================ PIE ============================ */
+      footer {
+        margin-top: 48px;
+        background: var(--azul-prof);
+        color: #cfe0f5;
+        padding: 34px 0 26px;
+        font-size: 0.9rem;
+      }
+      footer .envoltura {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 22px;
+        align-items: center;
+      }
+      .firma-caja {
+        border-left: 4px solid var(--oro);
+        padding: 4px 0 4px 16px;
+        color: #eaf1fb;
+        display: grid;
+        gap: 14px;
+      }
+      .firmante {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+      }
+      .firma-foto {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--oro);
+        flex-shrink: 0;
+        display: block;
+        background: var(--azul);
+      }
+      .firma-caja .firma-nombre {
+        font-family: var(--serif);
+        font-weight: 700;
+        color: #fff;
+        font-size: 1.05rem;
+        line-height: 1.25;
+      }
+      .firma-cargo {
+        font-size: 0.87rem;
+        color: #cfe0f5;
+        line-height: 1.4;
+      }
+      footer a {
+        color: var(--oro);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      .foot-web {
+        text-align: right;
+      }
+      .foot-web .web {
+        font-size: 1.02rem;
+      }
+      .foot-nota {
+        grid-column: 1/-1;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: 16px;
+        color: #9fb6d6;
+        font-size: 0.8rem;
+        line-height: 1.6;
+      }
+
+      /* ============================ RESPONSIVE ============================ */
+      @media (max-width: 760px) {
+        body {
+          font-size: 17px;
+        }
+        .hero__grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .gob {
+          margin: 6px auto 0;
+        }
+        .eyebrow {
+          justify-content: center;
+        }
+        .hero__lema {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .pilares {
+          grid-template-columns: 1fr;
+        }
+        .promesa {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .promesa__icono {
+          margin: 0 auto;
+        }
+        .equipo {
+          grid-template-columns: 1fr;
+        }
+        .agenda li {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+        th,
+        td {
+          padding: 10px 14px;
+        }
+        footer .envoltura {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .firma-caja {
+          border-left: 0;
+          border-top: 4px solid var(--oro);
+          padding: 14px 0 0;
+          text-align: left;
+        }
+        .firmante {
+          justify-content: center;
+        }
+        .foot-web {
+          text-align: center;
+        }
+      }
+      @media (min-width: 761px) and (max-width: 980px) {
+        .equipo {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+
+      /* Nota: los bloques de texto van sobre fondos de color solidos
+   (azul, azul marino, turquesa, ambar, violeta) -> se leen siempre,
+   incluso con el modo oscuro del navegador activado. */
+
+      /* ================= BOTON IMPRIMIR / PDF (solo pantalla) ================= */
+      .btn-pdf {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        z-index: 50;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: var(--oro);
+        color: #0b2c63;
+        border: 0;
+        cursor: pointer;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 12px 18px;
+        border-radius: 999px;
+        box-shadow: var(--sombra-alta);
+        transition:
+          transform 0.15s ease,
+          background 0.15s ease;
+      }
+      .btn-pdf:hover {
+        transform: translateY(-2px);
+        background: #ffb733;
+      }
+      .btn-pdf:focus-visible {
+        outline: 3px solid #0b2c63;
+        outline-offset: 2px;
+      }
+      .btn-pdf svg {
+        width: 18px;
+        height: 18px;
+      }
+      @media (max-width: 760px) {
+        .btn-pdf span {
+          display: none;
+        }
+        .btn-pdf {
+          padding: 14px;
+        }
+      }
+
+      /* ============================ IMPRESION / PDF ============================
+   El navegador ignora el modo oscuro al imprimir: aqui forzamos
+   blanco y negro normal, con acentos azules y el acordeon desplegado. */
+      @media print {
+        @page {
+          margin: 14mm;
+        }
+        .no-print {
+          display: none !important;
+        }
+        html,
+        body {
+          background: #ffffff !important;
+          color: #000000 !important;
+          font-size: 11.5pt;
+        }
+        .cinta {
+          display: none !important;
+        }
+        .envoltura {
+          max-width: 100% !important;
+          padding: 0 !important;
+        }
+        main {
+          padding: 0 !important;
+        }
+        .seccion + .seccion {
+          margin-top: 16px !important;
+        }
+
+        /* Todas las superficies: blanco, sin sombras */
+        .hero,
+        .abstract,
+        .intro,
+        .pilares-box,
+        .promesa,
+        .cierre,
+        footer,
+        .discurso,
+        .discurso details,
+        .discurso summary,
+        .discurso .cuerpo,
+        .pilar,
+        .epic,
+        .tabla-caja,
+        .persona,
+        .agenda li,
+        .banner img {
+          background: #ffffff !important;
+          box-shadow: none !important;
+        }
+
+        /* Encabezado */
+        .hero {
+          padding: 0 0 10px !important;
+          border-bottom: 3px solid #17458f;
+        }
+        .hero__gear {
+          display: none !important;
+        }
+        .hero h1 {
+          color: #17458f !important;
+        }
+        .eyebrow,
+        .hero__lema,
+        .hero__lema .en {
+          color: #000000 !important;
+        }
+        .hero__mes {
+          background: #ffffff !important;
+          color: #17458f !important;
+          border: 1.5px solid #17458f;
+        }
+        .gob__marco {
+          background: #17458f !important;
+        }
+        .gob__foto {
+          border-color: #17458f !important;
+        }
+        .gob__nombre {
+          color: #17458f !important;
+        }
+        .gob__cargo {
+          color: #000000 !important;
+        }
+
+        /* Rotulos y titulos: azul; cuerpo: negro */
+        .rotulo {
+          color: #17458f !important;
+        }
+        .rotulo::after {
+          background: #999 !important;
+        }
+        .abstract h2,
+        .pilares-box__tit,
+        .promesa h2,
+        .epic h2,
+        caption,
+        .persona__nombre {
+          color: #17458f !important;
+        }
+        .abstract::before {
+          display: none !important;
+        }
+        .abstract p,
+        .pilares-box__sub,
+        .intro,
+        .intro p,
+        .promesa p,
+        .discurso .cuerpo,
+        .discurso .cuerpo p,
+        .cierre p,
+        .persona__club,
+        .agenda .detalle,
+        .recursos .detalle,
+        .banner figcaption {
+          color: #000000 !important;
+        }
+        .recursos li {
+          border-left-color: #00778b !important;
+        }
+        .recursos a {
+          color: #17458f !important;
+        }
+        .intro .drop::first-letter {
+          color: #17458f !important;
+        }
+        .discurso .cuerpo strong,
+        .discurso .cuerpo a,
+        .agenda .cuando,
+        td.fecha {
+          color: #17458f !important;
+        }
+
+        /* Cajas con borde en vez de relleno */
+        .abstract,
+        .intro,
+        .promesa,
+        .epic {
+          border: 1px solid #17458f !important;
+          border-left: 4px solid #17458f !important;
+        }
+        .pilares-box {
+          border: 1px solid #ccc !important;
+          padding: 8px 0 0 !important;
+        }
+        .promesa__icono {
+          background: #ffffff !important;
+        }
+        .aviso {
+          background: #ffffff !important;
+          border-left: 4px solid #8a5a00 !important;
+        }
+        .btn-enlace {
+          background: #ffffff !important;
+          color: #17458f !important;
+          border: 1.5px solid #17458f;
+        }
+        .controles,
+        .carrusel__mandos {
+          display: none !important;
+        }
+
+        /* Carrusel: al imprimir se muestran todas las tarjetas en rejilla */
+        .carrusel__pista {
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 10px !important;
+          overflow: visible !important;
+          padding: 0 !important;
+        }
+        .carrusel__pista > .persona {
+          flex: none !important;
+        }
+
+        /* Acordeon: mostrar TODO el contenido */
+        .discurso {
+          border: 1px solid #17458f !important;
+        }
+        .discurso details {
+          border-bottom: 1px solid #bbb !important;
+        }
+        .discurso summary {
+          color: #17458f !important;
+          padding: 10px 12px !important;
+        }
+        .discurso summary .num {
+          background: #ffffff !important;
+          color: #17458f !important;
+          border: 1.5px solid #17458f;
+        }
+        .discurso summary .chev {
+          display: none !important;
+        }
+        .discurso .cuerpo {
+          display: block !important;
+          padding: 4px 12px 14px !important;
+        }
+
+        /* Tablas y tarjetas */
+        .tabla-caja,
+        .persona,
+        .agenda li {
+          border: 1px solid #ccc !important;
+        }
+        thead th {
+          background: #ffffff !important;
+          color: #17458f !important;
+          border-bottom: 1.5px solid #17458f !important;
+        }
+        tbody tr:nth-child(even) {
+          background: #ffffff !important;
+        }
+        .persona__area {
+          background: #ffffff !important;
+          color: #17458f !important;
+          border: 1px solid #17458f;
+        }
+        .persona__foto,
+        .persona__inicial {
+          border-color: #17458f !important;
+        }
+
+        /* Pilares: blanco, texto negro, franja de color a la izquierda */
+        .pilar {
+          color: #000000 !important;
+          border: 1px solid #ccc !important;
+        }
+        .pilar h3,
+        .pilar p {
+          color: #000000 !important;
+        }
+        .pilar__n {
+          color: #000000 !important;
+          opacity: 0.22 !important;
+        }
+        .pilar--1 {
+          border-left: 6px solid #a05a00 !important;
+        }
+        .pilar--2 {
+          border-left: 6px solid #17458f !important;
+        }
+        .pilar--3 {
+          border-left: 6px solid #00778b !important;
+        }
+        .pilar--4 {
+          border-left: 6px solid #6d2c82 !important;
+        }
+
+        /* Cierre y pie */
+        .cierre {
+          border-top: 2px solid #17458f;
+          padding: 14px 0 !important;
+        }
+        .cierre p {
+          color: #000000 !important;
+        }
+        .cierre .firma-lema {
+          color: #17458f !important;
+        }
+        footer {
+          color: #000000 !important;
+          padding: 14px 0 0 !important;
+          border-top: 1px solid #ccc;
+        }
+        .firma-caja {
+          border-color: #17458f !important;
+          color: #000000 !important;
+        }
+        .firma-caja .firma-nombre {
+          color: #17458f !important;
+        }
+        .firma-cargo {
+          color: #000000 !important;
+        }
+        .firma-foto {
+          border-color: #17458f !important;
+          background: #ffffff !important;
+          width: 46px !important;
+          height: 46px !important;
+        }
+        footer a {
+          color: #17458f !important;
+        }
+        .foot-nota {
+          color: #333 !important;
+          border-color: #ccc !important;
+        }
+
+        /* Evitar cortes feos entre paginas */
+        .abstract,
+        .intro,
+        .promesa,
+        .pilar,
+        .discurso details,
+        .cierre,
+        .epic,
+        .persona,
+        .agenda li,
+        .tabla-caja {
+          break-inside: avoid;
+        }
+        h1,
+        h2,
+        h3 {
+          break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cinta" aria-hidden="true"></div>
+
+    <button class="btn-pdf no-print" type="button" onclick="imprimirCarta()" aria-label="Guardar o imprimir la carta en PDF">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9V2h12v7" />
+        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+        <rect x="6" y="14" width="12" height="8" />
+      </svg>
+      <span>Guardar / Imprimir PDF</span>
+    </button>
+
+    <!-- ============================ ENCABEZADO ============================ -->
+    <header class="hero">
+      <svg class="hero__gear" viewBox="0 0 100 100" aria-hidden="true" fill="currentColor">
+        <path d="M50 8l6 3 7-2 4 6 7 2 1 7 6 5-2 7 3 6-5 5 0 7-7 3-3 6-7-1-6 4-6-4-7 1-3-6-7-3 0-7-5-5 3-6-2-7 6-5 1-7 7-2 4-6 7 2z" />
+        <circle cx="50" cy="50" r="16" fill="none" stroke="currentColor" stroke-width="6" />
+      </svg>
+      <div class="envoltura">
+        <div class="hero__grid">
+          <div class="hero__texto">
+            <span class="eyebrow">Distrito Rotario 7000 · Puerto Rico</span>
+            <!-- ▼▼▼ EDITAR CADA MES: título y mes ▼▼▼ -->
+            <span class="hero__mes">Agosto 2026</span>
+            <h1>Carta del Gobernador</h1>
+            <!-- ▲▲▲ -->
+            <p class="hero__lema">
+              Año rotario 2026-2027
+              <br />
+              <b>Genera un impacto duradero</b>
+              <br />
+              <span class="en">Create Lasting Impact</span>
+            </p>
+          </div>
+          <div class="gob">
+            <div class="gob__marco">
+              <!-- ▼▼▼ EDITAR CADA MES: foto (base64 o URL) ▼▼▼ -->
+              <img
+                class="gob__foto"
+                alt="Gerry Cumpiano, Gobernador del Distrito 7000, sonriendo"
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwQDAwQEBAQFBQQFBwsHBwYGBw4KCggLEA4RERAOEA8SFBoWEhMYEw8QFh8XGBsbHR0dERYgIh8cIhocHRz/2wBDAQUFBQcGBw0HBw0cEhASHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBwcHBz/wAARCAFRAVIDASIAAhEBAxEB/8QAHQAAAAcBAQEAAAAAAAAAAAAAAAECAwQFBgcICf/EAEgQAAEDAwMCBAMFBAgFAQgDAAECAxEABCEFEjEGQSJRYXEHE4EUMpGhsSNCwdEIFTM0UmJy8BYkguHxcyU1NkNTY3SiRJKy/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECAwQFBv/EACYRAQEAAgIDAAICAgMBAAAAAAABAhEDMQQSIQVBE1EiMhQVcWH/2gAMAwEAAhEDEQA/AO+qxmgnmlbZobYqmgYofpR4ooJ4oBQHNDb60YoCod6B59KMJPv3oAT270Ugc0ewk0cQCYoE0YBpDLgebCwMGnKWghGaKZ4pQAzStneOKjYQEz7UNpj0pUeQoHPMxTYSUwIFAc0sAAeXlFGR/OmwiOcGgYGaVtnzNGUgjFNhHIjvzQAKh6ijCKVjvQJ2wB60kpj2pwjwzRRPemwj0AobRzmadCeYpG386BBHkZo+cedLjkzQGe1NhEGIowmAcmlQR5YoHOZoEcH0oE0sIHqTQCROabCQDGM0r8vKjEbiJiKI4H86BBB4oDBFKAxJI5oKiaBMZ9aMcUANxOPrRlMA+lAndmaMncJijCMSY/lR7YSO59KbCAKI5n1pXrQiOU/WpCIoUcetCgESJoDNGIjIoQRTYEDvQJ8sUVGRPHNAAkn1o/cUEkiCYilwk5g5oEgnsMUc7TMUaYFHEZqAgyrNDEjzpZwPeiHEfSmwlKdgAAG30oH3E0oowAKBSRHf6VAAJzxQCpyaUAaVtCTxg0CRRhM96rNd6j0rpm3+fqVyG1EShhOXF+yf4muM9R/GzU7sra0pCNPtuN48Tqh79vpVcs8ce23FwZ8nUd1feZtGvm3TzTDf+J5YQPzqluOtunLUlK9Xt1KT2blf6CvLt5rV3qLil3Fw486oyVOKKifxptDzqVAk4rDLyZ+o7sPxts+16cR8ROm1rIF84fX5Cqltda9OvK2jVWkK/wDuJUn9RXmZi9UIBPfirFrUNh/xJ/Sqf8r/AONf+rmvlenrW9tb5O62uWHx/wDbcCv41IOMRFecrK8S2ELQS2o5BSYNbbReutQsgEPrF0wD910yoeyq0x8nG9ufk/HZ4zeP11Y5/lREACq/SdesdaRNuspdH3mVfeT/ADFWRAPat5dzccGWNxuqSSIjzohxnMUogEmBQyB+tSqSEzOaHAGaGQJ70YEgGgSBBifrQKcR3pcT2ou8/SgTntzQ4M0sCRg5oK980CQTkkYoKUYxRiD3oAUCY57TQB/3FGfyofvelAX3RIGKNZxwRNEVniRFAcGfOgLbtjBNBShIgQDR5jniigK9h2oCMDvRqiBPPlQ2UFpiCe1WAhPnQooTQqARgxOKUojaIpBIowOJ4qQe2YNCB3NA884oeE5EzQGlImPOlEBJGQc96QdoE8mhKNvaaX4FSmO1DcCeaSNsjA+lGSkqkJ+lRsKKgByKLcCcUYMiM0RBxE1AVuHrigVAeYNJEqwCB7UQBOJqbQtKtxEn0rC9dfE606WS5Z2BbudUH3zMoY9/NXpTfxO+ICOkrAafZrH9bXCZKhywg9/c9vxrzLeaku6UoqUTJJJVkk+dYcvL69O/xfF9/wDLLpZa51He6xeOXV1cLcWsyoqMk/78qq/mFxSVYgeVIQkrKQlMqVxUxi3c3JKwIGYFcOWdr2ePikmoU02EiQd3kIzUgSTExJ7VIt7f5oCtufSpybFPh3JCjAxWVtdWOCB8hS1bUgEjk+tT7a0VPJiO/aptrpihE7TP3R3H1q4t9KwP2iNw7BQNVytW9UW3sjtSY4HE5qxS2TtKCUlPIPJp1LLqIT8spPMqEU+GShScyY8u9RuosibYXa7ZxDja1IdT4gpPNdD0Tq5NzsavilCzj5wEA+4rmzLRS54Z2EcKqwbXtUEryOBW/Fz5YX44vI8TDl7dm7cgg8EdxSTE881htD6iXp21m4JctD37tnzraMXLV0ney4lSIGRmvS4+SZzceDz8GXFdUonFGTIzREegmjGRMTWjnEMd6IHMGjoSAc1AOIoon6UQMk0N2cUB9hRk0QmKBgnjPnQJMGhMA5+tA/dM0AmU4oBtHYUOOKMpkiTkUlJUVHACRQHtO3iPekiRzzS53DIosBIH50AyDPNJWeKWCQCZO3yooSTgfQ1IRvPrQpUjyoVISDM0flQIAyOKM5zAmgMgD3okngQJo04g0JknMCgJWFTgCjHkIjzoED3mgYEhNRQoKBB5mkb8EHmgRGT+FGlY8s0BDJo9xmO1AGe1GE4PFAQg8Yqv6j15jpnQrzVXwFC2RKG5j5izhKfqYqcpYZSpSjCfSuIfG/qU3L1lozDo+U3/AMw9BwVcJH0yfrVM7rGteDj/AJM5HJ9b1e81i/uL29WXX7hW9xR7k9h7cfhVQWwcQc+Rp8u71KESo9/KkNuAK2zKvLivOt3X0OGMnyJ9mkrKQAUgd45q/t2FKkphPmFjn2qlYQsrSEuQY57CrnS0xagOlTlxvJUonEdqzrswh+3YdlYSkwiQduBUlthv75WjePI9qZeZ2XCSDKVgDw1LZZWG1K4HcqwDUaap9vZsuJBLiRJkq4mrG005kOiXGjtM7R38uaq2H7faAp9lM5iZI/Cre1dYUpKg+kxmCmPanqirQMFobpPyzj0JqG/crWsISyncn7xSYgedOpQ7sLrCwF8jYrwme1SWW3QiXWkAQAcQTVLNKmWXN6mwoolWOR2qWoBQJUk7jyRSF6c2FIW2gwTuBVipJbUhxAOGo57e1VRRpIVblKFEzwaXo2qXmm3QCnlLamII4/7UpllKD4RCSZgetIfYU1cDcJSogz3Brfg5Ljk4vL4plg6VZ36b1E4SoYIqbIjFZTT3fsqmROTA9D71qkhKkz38q9WXb5zPH1ugiBRAbueKMImhG0masoG3y/GjCYNGJ7UUED1oACSeKBEmjSo/hiklR8qAik8RNFtjBilkkQRSY55oDCe4oFMZgfSi3dvIUaeKAdu1IBAEEUo0lJqAaVD6URiTnj0pRgZgUWTMYA9aBEJ/2aFL/wCkUKkJKcUYSCM0IOMCKBEnFAIAwJoBJHrRlPAGDQg+dTsFACuT+FKjtQGSPQZoiYM1AOMcUYAk4FBJ4FF396A0pSJ8zQASSPwoo4xSoICvSgyPWOu/1ehNuyqHFAlRPCRXmfqO+VqOrXLpUTuUfEfIYFdS6/1Vb2pXS0ZaQNszzGK486lSnFEnGTPcVx8+V3p6vhcck9kNUpXCBzyaJLag4kbyD2gRT++U+BIKj+9TaUqVGSHJiud6eFT2UGVFK1jYmSQauLJLizJcKZx6mm7W2QuyUoEkkQfMGlac5sdW2pXiQQJqldmPyJ12H0FshwgA7cdqkWzH2haQtaij/EoyaXdtLTbrWYiZHnU23txb6W7cEFW5MJHGSO9Rpb2kVCT8xS1NtqccUvaNuABWp0+yWhtXzGwlZABEZHpVXo6Ba27K0M73QZjsacveq7mwSCLQqUtfj2ntV9W/GWfLIv2nSggBolpBIG3E1Oauk3A2PKWmDMLwYrMp64vGbFKLfQ1XLjkFCQrt6mot1c9R3KRc3FraoJIIt0qUtXsAKXhtY/8AIn9OlWLCC38wrLiFGQfKpf2ZC92TsVAjsDWU6a1W8Wja82lB4U2FCte09vTtKfx5rHLDTbHKX6rWHU/OcaDakqaI5H3pqwuLM3FqEpT+0Ix7006Up+YU+JXHlNWNosKcb5DZjB7elOPvanNN4pdkx862Q8BC0pJ2jvt5H0rSMOhxpKo+8kKg9pqv0haWr51IA+S6CtBA4UORVitG1aFBJQlQhPrHavW46+a8jHVLGTNAijme2aKZx3rZzDxIxRmPKkgEc0faKAiY/wC1EmSfunmlDAoAwfagNQ7YpJBwZoznNDy86BJI4iiOBilFMk0SgOZI9qBI7T+NGRHFFNLkxmoCMeVEkHaTzI4pdJAkk0QE/wC4oUe30H40KhJs96KSPeiA9aWg4OJqwNJJBmhkTNBJABnBoHmagKkEUBikYPINCY7YpoOR3ogYkmkzzAmKAMASc1AWTgYonU7mVmYgUQJ+tMair5dk+udqktqV+VB586uKlIfUpXCyAPrXNrgKCHTuGDkgcCt91a8S25v/AHlRXN9dU42yCkmXFRtHJEVxZzd29jx764s8/wBUW7Li2kK3LSe/hp626guFOJKbdRa/xwf1qRpWlWzI3rt0KPcrGKvV32hw2y/eW6VnhtCwYpqf03ntvtI0vW2xJKp3dymCKmXdwyp5LzRG5asgdwIqm1HSNOu2g5p91uIGdquKyab5+zvm23nVFE4Jqvp+2+PLcflruT7zL9m0lBSC4kCPSr0Wf2nQEW6IClQoGua6bqqHktbySUJ+7Brottfvp0ZT33GW0kl1zACR61jfl07P9pszYKtdNQPtDo3pJ5P5U2/cWF4opQgLJBhP6Vw3WeurzVr98aaltduFkJuHlH5fuAMqqrOo6neEm81m8Wjj5bCvlI9sZ/E1tMP7cWXJJXouxKG1hLjrCBGApYFbPSXCylS2ktuJWZUpuCY8pFeN0XWhtvpRdrW9OPFcOKI/OtVplrpIG7R9V1PTron71terTB/0qJBq1knakzmXWnpy+sbZ1/7Vat7HhAWQmB+VOtOTJDyVOcRFeT9U606+6O1Flh/qNx2xuTCLt5oOJ9QREyJq36X+KvVuoXyy7fm5tEBO25FmlCd3cDzIqb4/tNyxSeXjhfWy7enEuZJJ8MeVTbe4TvjiQJrzy58RupfmGboBJMwWQKstJ+K2vWlwFkWj+ZKVtwD+BFUx8TLe5YnP8hhrVlenbG0U1pe8lc264EjJn/zVyra5ZsqVkIXtJ9TXNukfi3Z9SWbdlqFumxuisFTjZKkKgTEcg10a0LNzaLW2f2SoKM+vNdeONx7eXy5zObhPFAZ4pRTtmTmiAzWzjFxQHFGeYoqkChQFGQY4qAXlih2oxwaLtQAd6I0qJoiKgFjyE0DjEChFBRiMipBZOaLg8YpUYk+dFQHt9BQooHnQqoYSd3alQfKiCQBBMZpREHORVgY3ZGKImJxQBHlmjMEHBFRoAnAzx2ijmRREYxk0ADI/jVtADGfPtRhMk+VGc0Sc1GgYBEYFRdVSpzTLpKR4i2amCfSqzqfQj1P0xrWipf8As69RtHLdL2f2ZUkgK+hio0mT68qdfdaaBo9u6i41S3NwlyPksqDi/wABx9a5Pd9Qal1GhD1qk2Onz+zcWNzrg8wOAPWst1l0VqvRfUK+n9SZQHGXw0XkNlIcjvPqDNaZStoShKwUNpACR5CscpJ9j0OK5ZXSNb2Fs4XnNSfefHIDzpiPYYqqvNc0W0UUW2jsOAD7ykjNWR0tm6cWu4uFqCoO0cD0inDodkhsGUkJ+6lQ4qns6LLrTOK1e2dRLGnKtnOfm2zik7fp3quv9bvUlCluKcMylagQfr61q7hLKGi3IHkAMVS6hYm9sw2hPj3pSk+ZJirSy9sbjlJpY6FYdZdRsm4s33lMR/8AV2z7VI0z/iDVeoWOlr/UtRRbPK/5m1W6rZtGcifSuwdEaY3bMW9o2EhtoAH8OatviBolvpHUPS3VgYhpJNldqAgFKh4Cfrj61hjze2dx09CeP6YTPbnGp6AdPZW42AlM7Uj91A9Kz7WlqfdhbhI85wK7d1F04m5tw06T9nVCkLTiAe/qK56/00/aOfsH94Qf36yx5tz723z4P66RdI+H+m3l02q6BImfCTmuzWnw96bsLJn5No39oWmXXX3pg+1c703Vriw2lbCN6TAUO3rWsb6wtnS2pFrdquAAn9mgbU+Zml5LrSmPjzfxQ/FPo+3V0LqV4l79si4ZcZREEDcE8dpBNdZ6a6X0nTtH06wZYsItmEJJUhW4naJOe8zWC6luXdcsNI0kuXO7UtQYagxBQlQWs48kpJrrrKnIBUEuIPGINVyyv8ci84p/JctK666K0i7y/YtgHIU3j9KgI+F+hOrX4XkCZELmtgoDalSJCRjb5GjKyhM8AZPrWWOeUvytM+OWXcUOvfBfTF9NPL0a/vbG+JS81cpcKigpOUxxBpterar0voq7++1G/dZtEAFm1CQVfiIrrGjoTqPSj6/uBAUB9K5zrdubnp/VmlgKSGlHPsTNb+TyZyTVY/juDDPKzKftp+g+s7bq6xQ6y/8ANC0lSVKAC5HKVjsRWtIAkzXnD+jwtwatctpB+UpW6ew8Jn+FekP3a6vE5LyYbrzfzXiY+N5Prh1fpOCaKMUdGMnmut5JJEmlDHtRCjKgfSoRSYk0dD/cUU02BxgDmgOMigFRFAmBFKkSvOh+ooE4oTPNRtGyTgUU0qfwoAiiRR6UKPcKFNBqR2/OgZ4IogfalbgogExUgwcURUB2g0CdoigCTPFSAFDJP40YMfzogBmjAEzQKnzzQBwIEUk84ox+NApOTntTrYlY4zTQ5mjMnvVaPLPxrvr/AKtd1lm7RKdLvwLJmBH7Pv5+Lj61xspZu2EuMp2MnlUZ9q9HfGnTmNP1J91lvN1tdcI4KuD+QFec9UJ0DUlvbFHSXl73SM/JWe/+k1y2/dV6vDr1liBcWy20SizV9FZPrUFQdXG5pwHiP+9at+4ZcbS4wsOIXkLSZBqMpDe0kxJzFZ12ySxmUWDiiFLEInIPNXGl6Wi4cSdo2NKChPmOKaubtlhC3HVBDaR37VqNHbC7C2WkBBcSFxGc1GVsicccbdVsunkKtktqT6bo8q1moBrqLSrrTr1pSrF9Py4STP8AqHqDmszoLLlw62lURIBA711vS+k721txdXDCEsKX4d6hJx2HMVhr7t6EuHrrJy7Q9aUyyrpHWwU63YAi1dUITes9lD1HcVQXwUi7c3yCFZTxFdI+JvQNv1MxZOLLzT1ssFl+28K2ye4IzXH9c0brPp+5+TdO22psk+C4dGxxQ9SO/uKtZM7vqsN3jmtbiUXG/nEAQknvV9YuMW1sp19SUMM+JalmBHck1h7TT+ptSXCLOwYg5U7cE/kBW50H4eu6iq3c6jvFX6EKCkWLSPl28/5hys++KWSd1rhcsuotOhXXOoNc/wCJnGCjT7ZtbGmIUmN4Vhx8j1A2j0muw6e0Xti1YRzHnVXpWg7UoUltEHAQnt2wKv0W/wBkgBUgedY8l2vMdBdNboAPB8uajPoPyoCyIBJESSPKpinQ8kpnxxTO0KUASEyIk9z5Vl+01fa1rtj070ew2XVNIuFJS4qZV4orN3wtr/QdSZsnS98y2XtWT/lNSOp9Jt9b6dcYdklCSoKjIWnvXNOgtefXcXVgfGFNLbEexrTyM/0fjuOTC5T9Vov6PmkJt9DF4oeNYKiffA/Ka7OpJ95rPdBaEOnulbK1KUh1SApcfl/v1rRR2869Lw+P04pHzn5byP5/KyynXQAQIxRbB6UDgCiPEyK63mjwnsDRACDxRSaBHelmwZxQgeUUQ4ihJqAZpNEeaOgHFAZ4Aos5od6AEDyFADPaiJnEUJjAoFfShRTQoGSIII4NLg+lJx37UAIVzikgOD3OaSMT3zS/M9qTxzP4VIOCRJ/KjE+VEJ5ANGNxOUge9AZBGaMSDRQrnHtQ8U0RsYI7GlAGYNFB86A7+dEsD8Vumlaz047cNJBftlbvXb3rzI4ygXK0qAUEiFhQkHtXs3V7dy70u8YTG5bZAjzivInXSE23UN2G0fJDgbWU95jP5iuXmx/b0fCz3/jWE1DpJn563NKunLFSzJbRlsnz2nj6VT3Gja4hakjUmlJA+8GoP61qmbguL8R4/Kiu3kNMrUtWB3rCZV6n8eLna9IW3fWqrt5dyQ4CpK/uxPlW+GopaukFK07SRic1RBs3bpWlJUT2FWf/AAk7dfKdcSsKUoJbA5mrfax+cfTqfSS0vPoXvG5IB5711NOoX76WgoOuojwJRk+wzXC2tA1Hp+2L7OoEhCdxbWPE0B/iPr/sVa9Oalrmr3Cr2+1F0NoKENICtqQCYwPpT+NthzTLt06+64urQ/LuNF1C0gwFupSU+8gmqzUFt9Rt7NhUgI/tIxmrO40/7YppBLpklMrMpMGCanIaFsGmFN7UY9jBz/Cs8uN1Y8mN6ccubG70W8ShYKm93hUjv71vOndRDW0KhUjJmSCautc0Rm8YMoPzJIAHKSOay6NPuNJ8Yac+SmM9s9x6VjnLL9dGOcs7dX0/UEqaBSoHbj0UI496Q9cKdKto2jkzmszpGqs3LKVsqT4Ykd6vVBcIMFQGB9f5VnyZbRChcKSUiDn8qlMS4AVEgjgCoCwoKSqSpM9hxU60QdkbgD/h71mXpZ6uXbToy8ft7YuvttrASkypfAn8P0rmnQfSyLS/XqDhc33BCEtrEeJR7V2hlANgypIG1TB37vOs/pFuX9ZtA34mWSVlPka6c+P2yxcXBz/x8XJG0goTA+6kACigxPajkjlI/GjM8x2r158fLb2biRNCCe3FKz/h58qIhSQRFSCg+lJyTSpPlRAK7igOMeRFJIMzSoVB4oglXJ4qNXYSTBogZ7EUspVHb0oglUREVKBGgPEeKVs8yKABHcEmgbijAJmlGTzRbcTQChRZoU0bITgwRQnPpQmDmh6dvKiRzRzHNIBgxRniiC5xg0Ez3pI4FGBQ7KPme1AGiHFHwBRA5HlRUACRzTgjMxRJtaS4y4ByRA868qfG6yTadUtOJQEIcbKD/qBmf/2r1ekgZrz18c9JQizVclKlPtXZdKgMIQrAH4gVhzdOrxM/XkcGQ98uRmPao9vbOazcbM/JSfuxEmn2kl64WlIMETFabpbTNqXFKSEqVO2RMJ71y4x7GfJqFaPoEJASQAnJURx6+9a0MIsPsmxMLW2QkKGSSMfpP0rKan1jYaWzfOQXGmCkBKRJVnIH4flVJc/FbTtRutCeSpxa0bkXDLZ8SY27VCfQH8TW2MvbhyztrXdYNO23TFo4St+71B8p3HIgSSfapvTL9neaI3ZOKH2tm43uJTwBAgT9D+IrMa11DfdSW8WjBQzakbUR/Zp8wPUAVedG9PapYN3GrDYtKgkBJ53qMBUfU/jVrlFsZdb27rpaGmToS3T4f2h9CB5+w/OrLXdPDerWqVIllcJQpPbiKyp0K7uLLSkrdcQVLUzgztCsnafpTnVt8xoek66p69dfGnJSpoNql1OAQkgZJNRLjekby3uNW23aX1w60+UtOfLKQdsKKuB7/wDao7+hthhBG1aAiSUHCh3xXFLjX+pupdT0+30BxTLDLaXX3XUkK+biVfhM+9aew6u1vpJ5q21QfOQ4+twOhUhCTkjzgdvSoynHl22x/nwnsPUdNVoesBNuRseHzUevpWwtXw5ZhafEkjMjvVBrfz7i/sbi1/b6e7C23SMkHsT5Sfyq/Zi309DYAC48U15vLhq6j1eHO54zKnGUlY3DCeT61a2LZ3gGIVwCOTVehl0W7ZShPiBglWBjBq6022cunWQ2mTuGR2zWeGFti/LyTHG1cv7LbR1vqSUD5ZgeWYqn6bZ26spSDuSUlU9iOxqd1+tSdLfsWXg0raZUnMTxj2NPdJ6d9l0th5biXXXW0gFIwExXoY43Lkmv08nlymHj5W95dL089qScx3pXBHakkgYPJr0XhhyfSijymj4OBQ7xQFHr+IoRAPFAyIjvRgYzUQEEyAaL5c0ZB7E0I7VITtCfPFFhVGYjg5oxI54igT/DmgDPFAKEkntRAhVEDoHAkUCCAPXtR80Sbg+VCh4vWhTaNGckmaUBz5+dJ3cUN3iwKhJWRg/rQyeRRbjmhUlL9Y4o5mkBRMTSiZNEQdHM4pM4o0+Z5oDM9qA9aEzQE+VEl89oBrnnxZ6eOraNdLbTC1twf8xHE10MK8xUfUmRd6dcsnIWgiCMVTKbi+GXrlK8DvBy1uiJKFJO1WK6jb/K0/TyEoCnTaoQZ8zJJqi656aXbalcPgFtIX4kq5J8x74q7tmfnaNZuQlSiQxEZUpOT/EVx2ar17lMo5jrWgOWupqQtJ2uHd4uBWd1TpJpLxubYlDo7prqnUumr+eq7eUordgpTHCcRWaeIk7YInyptrjjL8VWn9Qarp7TCWGGFXABS4pwEpcT2EAirlGv9XXFuq2Vq/2S1UEj5Vo0lMRxJMn86rkbV3BOJBxFaWwsk3qkhalZIGBU7dXF42F7W+g3uu3biFXvUGoXjrR3NhxwhKFRyEpgf+a3Ol9K32pbnFAtoWZdcWcrPn61U6JpQsC2oBO/dCQvJ966Zpd2tbaCshUcpIxVbk7PXDCaxh3StIttIti1bJSgcKVOT61SdVWKtRV8m3Tuc2wqeQk8+1ax1xKfF4Y4k1l3r3drS7dIlsAKJH72Yisu65+a7m1po+nrYsLGw8SnW0uOqKjIT2SB6QCasdVsSy0wpufluJyYzNWOm2a7ULui2qCoCImYIj6Zq2vLRT9i2WRCUr3qBHEyI/Woy49/XLx+RMPiitbfaGmSSE8ZzBPFajS2laRZ3F2tMqUIQk/4vP8A35UNL0MutW+9JzuCz5bTj+NM9TaklLzTDfCE7SmeDzU+n8ePtUZcl5s/SdM11FdB1h1avEpWVZ5JPNRdJ62f6f1my0DXENt297bIubC5bkbmySNp9QQQfpUDXbhKWDM+NQGOTRfFq2Sfh58NNdA+VcWt2u1+YRlTapOfSUir+Hd52s/ynH68WMn9usgbo2KBSeCMzRFKpieKyPTOvIZCbd94fZlwEFePlqPb2NbEpO4GZFek8EnaeZoEY5pRFEUyKBMflSU8kzmlR5ClUDZBnmgUwRnNOUR4qAgAg4zREEyABS4A45oiQT5zUhASINIAUnGDTkQk4+hpQOATQN7TQMzSjxQBqJsJn0oUqP8AKKFToRozNED4jSRPngUsEGgPsaIUU80AZmhS8UfcUkH8DSuKIK9KMgcfnSAe1KJmiAx2nFLSARSJo0qz6UTDpEjP/ikhMiAeaIqnGc0E5JzgUqXIvip0224+m7Q1+yX94RyoHn9Kxuj6QldtbMqMIacJV5Qa9AazpidXsnLcxuI8Kj2NccXbv6PqL1pcN7FpUAnyPka58sfu3Vx8nzSi6k0pd2F27Z2MsJ2wnEj3rk2p2K7N1SUk7eE4xFd6vXbf5C952pJ3L9fT8K5xr2lOXLanUJhG8lCABAB/X3rHKO/g5Puq5y2ztd3KHetZpW1Lid5gESPeorGkPXLyQGj4vuk43H0q7Z011IgkKcSr5cpMgkdhFU29HDPX1qNPuGlOIU6dyBGexNbixummlEhW1AAI3DMdhXOmbW5s1eJslQPKD4Un1/3mtL08zc3luzcJBFoskqdd754A7+lRZaveWSb2tkao5e3ytoKWkfu8VJ0rTlvPuOhIPzMFRyB5Zo7PQHV27i2wQsHcsHkiuh9N6J/yDjKxIUhIkjtMimGF39cvkc+OOPyrvTLVA022+YICZ+YB5do+tWVtpKQ/MkjPhkZPn9easNOs0JYDKkyB4VAjgGlWzC7J5wqWNgBgHMAV0SPJ97b8Qb65To+lrcVhcnamO5rll7cqcfU8oypZJPer7qLWzqKylJKW0EjxfrWPuX/ltOuuj9k2CZjJA9K4OfP2uo9vwvH9MfbLuq7Uyu5uAlI3BKZM8TWl+PraNI+FfQNktW1ZuULlQ/yEn9arel9OOv67p9p8tW69cSVg4KUc5HbFWX9K66QdX6O0pBTtZDjvy+3ZIrp8HHUuTl/M8s/wwn/rL6U5ttUL2hY2g7Sea2ui9Wu2627S+bUpo/dX+8geR8xWB0ja+gokFLcBEdwPWrJS3ChyVgpA5PceXvivQeC6+083cNhxlYW2eFJODS+a5FpfUj2h3W5jxIXG5k5B9SP41M6m+MT2jG2FtoQcLk7nnXZbKvIAZ/GpHUY7UkA/SuJt/wBIG6QlYd0G1WoYBTcEA/lU+1+OpchV1oaENHuh84/EU0OvGiImPKsEx8Y+nnGkqfZu2FnhASlc/Wal2vxX6Wu1KSbt5jaYl5ogT9JqBstoMUWyoFl1HouogfZdVs3VHhIdAV+BqzIgj1FAwQQTRgSYBGKc2wZ86TtMxQJUnIpHcgzTpSQmkgE96BO73oUMetCghpOJ+lHEZmgBjnijUDIGJ9KbNCjPNGAO1AJkn0o9sUBGZpQOKHpQCZ70QVzkc0Z4FJHvSgdwkUBd/Sl80kc8ClwOYokQEjypSRmCTNACjBBGaAlAxjNUXUPS7GvMmRsuUjwOetaAAcmlJEcCRVbpMefNf0+5024TbXLRS4DkHhXqPSmvsSblsISB4U4Hqa7B11oatXsEuNt7n2QdnrXMLJstXCW8ApABH86wyxdfHn+1BZ9PBV2orn7PbQkQY3rPr+ddAt+mmdKtgA0lprbtCUjPmpXnyaet7Zhy3YG2UtuFavVQNaO7YTc6qyxwna2CZ5Tz/wD6P5VExa3mtYzT+nzrWqpuXkxZsuENtHhStuJHkIqysdHU/qFiy5Cra2l5ScQZmAPIAVr9J0woVcNKTgJICR/izM/SKY0e2+0vvEoG9tUQB2wP4H8at6o/mpf9X/Yb91TCSqVt7oyFAjP0it7plij7MVBBTuE7fbioAQ3lQQJxB9sfpVo3cIa2oCp2gJknmp9WWedyqal5O8qkBIT371leqtbTYMPOgglfgR6nvS+pNbRpdrvMJUs7UD0rmGudQOam4kBUhA2icDnmsObkmEv9unxPGy5cpl+jNzeBby4khRmJ/Kqm9dEALcKWkeJYPeO1J+cWZIJKZklVcx6864Qwy6hhcoZnIP3leftXmyXLp9HjNdvR39Hxk9QdTatqpSSxpiAwD2Ly8kfRIH/9q5r8fNb/AK5+K7iG0/MRYNoZSewzJ/Su4f0etCPRnwTsL26EXuoNr1K4UeSpzIB9kwK8t9UXQ1DrS5edHjcdUqZ5ziva4cPTCR8r5nL/AC8+WTa6Q4Utwpt0jlMkYJ7VPu7hAbKCzsVHCU4B9T51UacpZty6HChe0JTAIgCpaXrpxqVKbCCCY2wT71s4aiOJbFu64vbu4kJMiqG7K9csHrFxk7rgEN8ANrH3TM1a3RWLde5xKN87QnxGKzFwUWThIdJ2gRKs+/nUVMYG4Q6kYSpCkmCkjgjBqSgOLCF7z/hI4gxU3qa3+zak3cNpm3vW/mpzw4MKT/H61WsFaVEqIhQkZ4qqTq9yRBWJGOTxSmXipKklxRWkymT296jfM3jcojeTxPalpahwAEHE7h2psT2dRfQSA8sKTgEKn2rS6f151NpbSU2utXTaAYS0oyPwNY+2HyXFEElJ7xT3zDu3rBkmAfKrS/UOi23xj6rQQHdQB3nJLKMenFWdv8aeoG3FfPetz/kLCM/xrlSnNoQpEJMyZ4FKfPz2wpLiULSJKoz6VOx3Ow+OhUlQu9MZWUjlt0oJPsQa0Om/F3RbwoRcW9zbEjKhDgH4ZrzO1dK4ydo8SzAJpaX/ABEqy4oQPQVbtS3T1ynrDQFpChqtvBEiSf5UK8il9wGPF9JoVG8TdexiogTH1oy5xtEUgLmJo5jjiqtRhSh9aAUo4iKKTj1o9wSIqUDyM7vyo+Sc4pIMzRk9wIoD4HejEdz9KSTiJFGBPA96IH4TilADzJ+tEBJpURxUbAKQqJJwaXtzAmiAzPNKUkJSXFkJSkSVKMAD1NSFERyqjUtDDK3XXEttIG5S1kJSkeZJ4rmXVfxu0Dp0rttNT/W18mQS2rayk+q+/wBPxrgvVvxD1vrNZGqXqhbTKLVnwMp/6RyfUzVbZtMd36t+NejWANjof/tXUHD8sOJkMIJx97lX0/GucWnVbKb64D7oCw8Gwoj7yoyfaf1rBdJtFzVys5RaMquZPmMJ/Mj8Kqda+0b3w0vY6lJIjz5msssvrr4MN47egtH1Haq4t8K3guJM+01qEXjj6bZ5ChKTtSVefka829LdcXTNsy6tUqQISSeQeUx7g11Oz680xpLDhfCEvnYpBxtPapll6TnxZR2S21pl1y4QofIuUkeGeZAM1JsHmmLsOyEOOqhQJwZrAPdQ2to0hy4ebUHBKCYCxHbJqfpnU1hrVudr4trhtWEODC84MfxFWrKY5XqOmtr+YFSAFIJEeYqm17qS30v5IWvKjlI59azGu9cosUtt2S0uXKxtkGQCOZNYm7uLjVHfmvkqUozPl6Vzc3POP5O3b4vh3l+5/Iuup+pv64ukfLVKEp2oHpVCLoD70SMzUC5U1ZNFaleIGCQKx2r6688FJYV8tqIUscn2rzcsvfLde9xcc48ZMUjqnq1SvnWlsuGgIdcB5/yiuUW1s51f1ZpOiNyRe3KG1hP+CfF+QNSNf1JDTYbRMdvWt7/RY6aX1B8VWrtaNzNijcVEYSpRgD3gKro4cN5Rl5XJ64V7n63cb6e+H5tGhsS2whhIHYARXiD7SLnqi4haklJxCefr2r178d9WTaaAlgKg5Ua8XaO6p3V7hZzKtxM8jyr1v3p8nb+3RW3QWtq98QfuKjPrVg08hFqFFsBMzmfFVNblSQlkEFahO3aePrT5fcQ3te3ScgA8D37VMmlQurlj54KUgyMAJge351R3TSVXClKSkOHkxkj3qzel63SSkNqH7qlTEetVmobQypyRBH7uJNRRUajYK1TT7lhtaS+wfnsgSdxSMj6iax6CVhICYBAM1rWrhLLzcpWpCVyrOSKpupNNVpWqKLI22bw+a0k/uzyn6fyqBWtgIcWYSpJBkEcmlrKA2hSvD6AUGhIIgcSKbcWsBbcISBkGeTUCYy8yhseE5M+5pBdJSQvxZkdsU1ZrU6mANpzJnypxq5VuE5SCM1MDraipeQnbH40038oOqCSofuqp11KEGADIPNMhRKtwH7YSdtSqWPlhxwKEJX6Ej/zSFIUFqIBkCFDzHand7jmVIPnIOaeSA6gyCqZSfWhTYUgAcD/qoUsaSqMITHqaFTpD2Ju9KTOTRgUVV21D60YPi9KKgMniKbQWDIx9fWgDHqaICD70cY9atsKCoORRpMDvmiCQRFC4dZsrZy4uXUM27Q3KdcUEpSPc0ScGSDzSLy8ttPtV3V3cNW1sj7zjywlI+prkfWHx30/Tku2/TjaLt/g3b6SGkn/KnBV+QrhOvdV6n1Pf/adUvXrlwGUlajsR/pTwn6VW1D0B1N8e9K00rt9Es3NRfGBcOH5bIPmP3lflXGusfiV1B1ehTd9fRabpFownY0PcDn6k1j13ecAblYG7tUdKgSlJkx94zVdh35pM8BA7UptQSiSIE8jvTMCBmVTkRikXbxZbO0CPI96Df/DSyVfaf1DcpTPjbZHtBUR+lWV9043fWLjkbX2wZj9Kt/6O1iLzpfUy5INxdOlJKZ+6hI/nW5vul3WVvNqRClJkED7wPeouG5uOnjz1qPJfTN0l5N1bK8LjL7iQe/3qvnX1pGxwDmdyRn61k7Jw6V1brDKkgRdupz/qrbOIDrQcTtgjtXJldPZ48fafUhOuP31ui3ffW6G8AKM+1WOnzvS4laztzIPBrJuMpbXKNwVMgmtBol8WXQFo3BYjwnisssrf21w45i6l05abg244vcDyDzVvq2qMaa2EJI3HhIrG22uG0IQhUIgFQkT9KrNS1tJ8KUmCZEmTPvXPk6+PEvV7967uNzjngHCOwrK6vqSGUKG7OIFC61QuEpbPzl+QOB9azt+XCvc4QVdo4FMY1yupqKS/fW86tbkSe3kK9u/0QujFaJ083qNwxsub9SrkyIUEAAIH4Kn61496O6bf6q6msdMYQpSHV73lRO1tOVfy+tfSv4Z6SrS9HbLidmxlIjy3Eqj8Nteh42P32eH+S5tY+scr/pF3wO5pKhIRHpXlnRy8xclxICgo4KFEZ+td5+PF+X7y9O7gwJHFcC0lbobCklO5JiD3J711y/Xi3qN9p1+3dOIbQtQdAIIJ8QPmB3qY2tdwVFLu8TkmDI9RWTVsMKKNxT24z/vvTblzcKc2tPuJAkjcce081ZRsnGmltEAJSB2/lWd1y8babhCQlxMAEnmo6NcUl0JdSU5hRQZMeQ9akWCWtcvHHpalqVJQoZSkdyfOoSqdGsrjVL5UlSEJG5UYgecniqvqjX7PVHmbKxa3sWxJN2eXFHBCf8o/M/Sn9f14XaXNM0pxX2JR/bv/AL1wfL/R+tUTNl8o+HPc+lTFfbfwtvdsSCClXBB4pSmlIWhxJzIEk1JdCdkz/mAimHIdb3jcrjFVqxJt0SsBZgGTHNTlFt1TamhtG2Y7GorYClAHAiKm27KHIwr5iFRjsKRFFKvliQNx8JPnTSSUXI2k+EcxM1PS1tJBUADBEDim/lJClqTukZChVogm2ty4khQlaTE+dTQydpThS4lMmM0hp0tkeHd8zMnFSWW1BwqztH7gSDU6QcTaApBJMxmDihSCt8EgWpIHeRmhTSNvVXPalQCKTznvRg1TTYADNHQpaU7jA5qAkZHlSlQ2hS1qCG0CVLUYAHmSeKwfW/xY0fo7fbNRqWp//QaWAho/51dvYSfauBdYfEjXurSlF9eFu0V4kWjA2ND3HKvrTeh2nqv456Lohct9HSNUvE4LoMMIPvyr6YrhfU/Xes9XXC3r+9U42k+FoYaR7JGJrOFZS2QnE5PpUVRW6lCURIODxNRbsOJdKyogeIcUcySFCY7edJQsoWdywSBzUZxwqChkdwagLWoTKUSqYGadUyUykEQaYZdAbPClnGPKnNu3a4oyO2akPIUGkGQDn8/aqbVnvliDunuBVuhwuJXvCZHEDiqi4Z3uq3wtJHJpB3n4WdSWXRPQenXF0hxaFtuvLLccKUfPyAr0RpqrDqbpnT9e099FwHGkqKAckRke9eCr7qZ//haw6esiVIakvvcyCoqCB+Oa6V8EfixddDPq0zUkO3GhXBlSE/eYV/iT6eYrbCyTSZus/wDEnoF5HU2p6jZM7VOPrWUTG8E+XY1R6e+pCAy+jangoUMivaOo9G6T1nYs6vpdwzd2dyJ3IGfr5GuMdc/BW9dH2jSygPIkJ+ZICo7E1yc/D+49TxvKmOpXJ12LTqfCpQH4g1HaZvLK4+a0pC0DsrtU280rWOm1FvWNOetkzhz7zZ9lDFEi5bdbBSoT5SK87Lcuq9rC45TcVabm9VdAlSVLEwoLwBU8NvLP7dZJI4HFLbtUhQWpKQJkxSLq7babGxZKqrfrXH4Q+sW6AIgelZq9uwpSilchPKhwkfzqwddevXksthbrjqtqW2xKlHyjzrrHw9+Bx1G9tn+oj8toKDhsWzwBnxqH6D8a04+O5X45/I8jHCbtdU/ot/ClTGgu9Q6jbqautTALKXBBSxPhP/Vz7RXqYrtdP055KHmkwk8LHlFcP+JfXx6Z0RrQtJV8vVrxoBRTj7KwRAx2UocDsK80X9mreV/OdKzz4zJr1+PCYY6fMc2eXNlcq6B8ab5lTtxscbWpbn3QZrlVi2UMIShJU4tU85+lVl/bOWzheVvCVGAo96v9L8IRJKkRAMVHrpjVkkIbt0bpTgq9wKglKHm0OpMJJkGKnuMEXCZJU2oQM0LllDKViFQMADzNSrtXafZ/PWt1SlbwqB5UnXnkm2WWFuIXtLatp2z5g+YxU5IUG0oSE7Nu8YkzVXcAPglcqOTP0olSB1PykpKdpkHAp5aCtKglClJTz2imNze5Q2lAayMVbaCE3Fy2kIUqT91VPZGv2r/mSBgEgRA7UEJQprasABJGB3qZ1G80daumWkpQ40hKVkf4ok/XIqAw8QUIISSoQScCaI9vuj6yEKSoETMAU9bBS1eAgBQlUdiKjb0wgAQ4ByB396fZQ46pkhXgB8RB7f7mkiU9lmCndATOzOTHYU4tlQKirCYwAe9TDY/LUsIO5PIBOfwpxVsHFEK3GBMASAatFbVQsypA8Kgk+0D3q0bYLkq3gEA4HelHTfAtYB3AYA7irKzQHLVP7JIdTkxUo2NDadiZUCYFCpHh7tCfY0Kg09BxRwBSZpYgmorYE8+9cZ+PXxSV0ppb2iaVcbNTfR+3cbV4mUHhIPYnz7CumdX9SM9I9O32rugKUwmGm/8AGs4SPxrwr1vrL+rXdzdXT4cu7hzctauVGeKrsXNqdxS2SQEIyJ5PeadeKkKUTMAx6UxZQltSyDKx70pxaliZwMR2rPeuwyt1Qcwn1NLkqBISSrnGDRSSqd4zgnyoOLKQBuynv2NSA6CBPA/MmoyypRHgO79BSv2iiDMwcDsaBK9kmZzKRUoQXAu3fSUSAoyR5ip7qNxQDMkiM4FMObluQTG3t2p9oqO0q7czUJSCnahKcpXuAjzqVcaQEaU9dEEFKSYIpNox8+8ZRIkdvOtDr9oqy6bYaJI+e6JHl3/hV8YrWN0XTVONgbPEa1ul6DvcB24ByRT3TtlIhSZ8q6Bp+lIS0kgQe9Tbppgj9N6trXTDil6Ve3Fru+8ls+BXuk4NdI0P4nvXFo9adQNlySVNXDKIKT5KSOR61jxagYgZM04mzCZMZ96r7Vr6uiWl1pGvsrYTe2V0pxPitlwFR/oVk/ga5d1f8GLVReuunYtLmdxtFkhlw94PKT+VSbjR7TUmtlw3CgZStOFJPmCMzT2k6pquh3SLa5u3Lhg4beOZHktPc+tY58eOcb8PNnxXeNcNdedtX3rS6ZWxdMHatpwQpJp3Q+nNS6ovxbac0VJmVuK+6gep7frXbOo/hsfiJqtjdfIcslNqAeuGhh5vunPB9e1dHsujLXpyxFtp7CWmUfeCU5UfMnvXLPGu3oZ/kJ6fO2D6O6Asum1JTaMm71VzCrgoJV6hI5A/OujvlXRejHUn7Xfqbx22ls6PvK7KWPIcxUTTHl6FrlneKGwNrBUVjAT3/KqLqjqh3qTXHbsz8lHgZSf3U+fua7+PDHGPJ5OTLO/WbOhXd/cvX+qXinru5UXXXDytR5zUXUbezsE/s2wpZHPersuuKAJMxVNf2ZfBnzrS1S4uZ9TXSnri3SptMJXNWlo7tS2gIls5JGDUPqdH2fUbdoJCiUlWe9Wemo/Y/PXMLHHpUMcu0uBIMGR5d6iXTz6ShtLaY3bju7Cp7RQQ8oqIMwCOM1VqWUXR2+KCMjt60UHa5uX0XCFnwj5aGwFfN8xM+ECqq5uGifltFaVgkb1pO0+kj+MVYOMpW6oh2D2A/eNU94+ltISYK8wQOKq0xvxXXiXGdgWktuuK2gd1YmZ4rVdOsMW1s9c3SFOIQneZ7wJOKyCA7cPtpecLiU+aiYrV6y6LDQre2aUv/m1QqFZCRk/wpJ9RnZ+mPZcKr5y4WRufUVrk8E1ObjcpITMfdxM1GUgNuAFsAK8QNWbgWrZCgkkCCK00yIMpJmCE5Bjj0qw0+3Q8oTJWQNpCsAjNRmmpaQpMqKhtM1faCzPy3CCClUZwPKKhK1ZtQ42le4pG0Ak8kD1pxpraI2pCSJ9YqzZQQ3tSAe5qK7u+UCQvCpOPpUxGlaEqG07vEZxzFTtNRAcT5D7oH4mibQouDwHeocASBmpVs0ph8EA+LBgnNSaOnT5JPzFCaFOlawSN5oUNu30pIxSZ9BSLi6bsbV+6eISxboU4snsAJqlrZwv+kF1O2u4tNBbVuTbAPvQf31Dwp+ic/WvLWuO/atVt7cQPmOBOO2a6L1bq72u6nfarcrl27dK8CIB4H4RXPLEfburLcbZaZClr+g/WqobvwsNpbQg7RgKOcVHcHkCKc3ckqkJ4TNJUJbUQecAms6toyEIJkJykk0h9cpJIBJEk08twKQERJ7mo9wDwCI85qZT1MoJEiSO5oy4sKj9zz86DR3IX4gZUJpLoKlQjB8zVkWFkA+IpMTAp9KCSFTHfOKZSlRTzieZqQCIVwUgCD61CKstASpy8KkiR3xitR1UA4vTLfZthBdV9eP41X9FWaHX1FYJSknjFWetBT3UD4wUNJS2APQZ/M1rEJmiWmxc+lbe1RtZkZAxms7pLEJFaxlrahMnnsKpl21xhsJzzj2p3uDz9KWU+Qoh94mqWtkZ97Z5gelda+EfRbN3p7mt6mwlwXEi2S4JCUg5X7k4HtXIL07Uq4nmK9NdIsGw6K0e3UQFItkkj3z/Gpwm2eeWmMvNHdvPtSd6WnmVLKkLdDeP3YkZHArOvsEOkB1Xh8lGtzr6m3wdyUqUkyCRxWLum4SopxtHArKY2Zb2TKVn9WaSpaEFRV5yagN2aN24GT61Nc8SlKOSabC0gcVrLVyVISkTGRiqy8UCZ4AqwUsHzqqu1oIV5Vbatcu6tc+b1EhIglLQEHiTJq3tGNlmkk7VpTHhzn0rP6sr7V1S8Y3FMAAdoFaFvxNoSXVAghRTHepjny7SrgqbskpKIRySMkT51SrUNm0KEc4xVperU8ylsr/tJUU+g8/yrPvKKnCtsDbO1PrSokSFOgNSAAoyJqifKVGUkczVk+NkSdsjsJ+tQnkfLZcVISsYz3JqFui9Bs1XV+pSUAgxOYqV1LctuauGGwS1bDaEjIKjk/wAKn9NgWbb926Ewykk5gcVmGx855dw54nXVlRM+eavIplTrqfmlCjtSgjgzUtBAQCVEJGJB4plpJWnacqHEnA9alMNKCNqk7sjKBFWVP24+8ckSOfKthpTSmmkoVJByIFUmkWiFLT85BWtQgIKuPKtewgNIb+WACkxzgVCUuyY2KOJJTMevvUVSEtOOIdPiV2BJx2nyqY0sMr2GQpKoKhwZpq52ouitKASobZ8gDUoV6lBhxsfMKVOZAKu3tTrtyCtrbugGZjFB9hTZSpQQTuhJ7UToSkp3DaE84ok/unlCSfPeKFMJDJSDKeP8NCiHdOeayPxW1H+rvh/q6kqhb6U26fXcQD+U1rEAyc1yf+kDcrR03pduhZAeuStQHfak/wA6zrZ5n1EuOJUknCRAz2qi6RbDmpaldKxENJA8+T/CrfVHAUECUgDvTPSbCUaWp48vurXJ75gfpVb0iLpQSo7SMp4oi8pA2xIPejO0q4ggElRFJYSSjeTuWMFR4rNeCcG2SMCJmmHEpKI2yeZ4qQcIhIKlHkeVMundBJzExFTEmWkQk7SEjcCcYpUgHk/9P8qS4dwKUkmTx5iibw5GR2M5mropcySJP1FPbgoBMY4k4ptuA4nympJQVOtJH7yp9qKVv+gLIq2uJI2bFJJnmkMID106/BHzFlQn1NT+lyq10N9wGPlNKjwx4j3FIsbb5aUTzAFazokaPR2wpSJ5ntWoCIqj0VspKRWhIms722x6RiOabgT71IKIBB7UyR2JrO9tIr9QEDAOfKvSyn1J0y1QkAJSy2mB6JFeb32y5cW7YJlbiU/ia9MOtBthKP8ACkD8BV8Zpnn2yOoLklJ5rPPgSqTitFqSQHF5rOXR2pcOBHlUX+zCMrcApWsbsUwVkYmn3gSozIPnUZRjmo20R33IScVn9QuFjcE+Xar25Eg1R3iISSY4NN7K5o08v+vrpxLY+YVxJ8q1bH7RZWU+IiCQn8qx2lELvH1q3K3LUZJjvitux42QUqcJ2ySODWkct7V+pLcQ4pSXCkJEQEg/nWC6g1p3TEfMSSlCJUSBP1robto4594b5GYPJ7k1nr7S2nWysHKVQFBUEfzpUS/TeksLd1DVzZ63aazoDFk2r7alstgXSyCG0BUFRA3SOIBNIfa+eluTGZMe/lS7VLqCltx6UohLaQ2lKEj0AxPrUxpkK1FtXIEAJquEs7Xzyl6TNV22fTKWEKO67cCfHg7Rk/wrM7ENtkpJKR+RrRdX7rjVxaKWEi2aSmAMBSsn+AqjRbFB2bd2P3jNaxhe0ixZKu6RvGKtmrcNupSmQPSqvT0wsJByjEpGE1o/lSPAEFc59qlKxsmU7pUAVJUEztrU/Z0oaClDwqMjuKptPQAyoTlQmrX5q3LVsEKIT4QoZwKJ2StlCVjbE8gFXNC4SNqSogCZGe1ICFBA8Q3AkE+VPXBUtCZVCExMiRHpRCM8j5tuClAMAEKB4zTNw5CCkZVHcVLDYuQpEhKR9ce1QQUpKVuJBQCEEeXrRUsXqIENKihUNS3EqIC0wDGDQonTvafu8R61xD+kSpY/4fEwCl4yO/3a7gmQBFcK/pGuA3PTzW8eFt1e3zyms62eceolqYsXVnMJPiNWOj2xZ0mzaPKUJJHrzVJ1GrbZupJ3KXWlYCSy0NpBCQOOcVT/ANIc3FLgJyFcpJpxKEKSrxjB74pvanapRAkd6VkJSNvuarVpTaoEGOf0ppbWAZg1IUQHCNsRj39aQ4ZIVGAYpBFGQVdwe3lRJWMk+2KUSSSQBByYouBid3NXDiR40Ecgc/xp+3SXrhoIAUonEUwkq2ncO2POpujNh3UGEgkGdoipildPtGPldMvBSgVPKQiAMcj+VSGmCUoAGadU0FaXYtEn7xVHHA/71PtrfCZ5FapkWul2xAKgO1W5QQmfpTVi0ltkZknmpBIIiMVle28hhSYGOKjrByYqQrA8x5UyuY4xWdWI0lr7T1JpLOCF3SBH1Fei79WDGOa8/dFsG6620kA/cdK49ga9AXbZLcknFaYscr9Y/UzO4nkisverKWV57RWj1ZUFVZXU3D8snsTEVS7XwUrh8U/rUZwRz2p9ZKjxTbgI5qq6G6DE1RausptXlSICCZA4xV5cKhE1lNfvUo0645whX6VKMumB0VKVneogJJmTitqy04ljaFIjaEwO3nWN6WaLlwRJQAJ2qrdlwlTQSUlJORGTWrlqBcnYhe1RiIiYzVRcMFDbctkrBkmMVoL/APblCNoIUqZPpVRqRUlak7iUqgAAxSiqUkIG9cg4JUe8VM6UaF1qMOeLMk+2agX3y2EGEFZkA7Rj6zWg0Rv7PYXdwlU7WoCv8x496nGFUFwHbu/urmQVuOFQnypSW/lKKhMkSCng1KbtkbCEhSyfyNSGWiltCVkISjBIxzV2fdQBDTYWGitW4SmYNXtqsFAfkK3eEDiMVWizt0KKglRIwQkzzVrYMHcpvwlPIBH3frULLqzUBbJhSt3BEdjVlbQtTiUg7I3QTBPniqthZNylBnYpPA86s7d0b07hvCcEx+dEDS44tRRCUzknbMmnkoLjLpCvuDInntQLJC0q2nYqRB70bSCl35ZEFwcA81IY2pRykJXjMnIqI+na+4FqUtPMRyan3CQHIWQkR24P/eieO8oUmIIiR3NDSKNPSoTtRnP9pQqWLcwJUZoUNOwpnANeYvjvq32zrV1jf4bJlDAHv4if/wBo+lem2pUseU14/wDiGs3HXHUJeysXa0z2gGAPwiqVq5d1GqdqTyFiB55rZlCAdwlO0CYrHdSqSXWBAlLqR+YrYqVtIIiDiI5rPInZCxKkxkdqKTwmacnYSQmVHse1BudqiBkdjVFtGnZIIUMRFIcG/wABBAPGacUFTM4OYniiBHBGKmJRlYdCQCEjmaScrmTzjNEvC1cwfyofeVt7E5jzq6KfWkAE7sxNWGgstPXbPzFQCoTn+VVjieTmavOmGwu8bGQTiY71aKV1VSUAWqEmEpQc8yJq1tG5IgEiqtwFNy0kiCEJ9avLEbdpnAPFXvS2Ha3ZHy0CBmlqMjiiSfCOwoKV+IrKt4ZV5RFRXiQCZIFSFKgkwTNQ7kjYTGPWs0tH8KG03XW7SlDDTDixP4fxrumoOBLZAHauI/B6f+LrkpzFsQJ7SR/Ku16i2WWSpwge5itp8x2wvbB6sqVrH6Vk9VRhuZya1uoAKWqeFcVmtcO35MduKy3tpipVpxUZ04yRTzrnIkSaiuLJgCoXV94SEwKxHVCy3p1wqD92Pxra3cnJ45rD9ZFI0p1JkFSh+tTDLpT9MtIA3KGSRwe1a22SVuOKTtwMJnj3qg6ftmxaskFUxJ4B/GtFagJbUkgK5MjJjzNbxyW/UV0lxS1lRCEgnamqi8BKkEkISgfeqzchttYS3CnTJg8AHmqx9xC03CwARhHFQKh6XH2kok7zJ8j61qlo+z6S2geFT6xKQeyf+8VRWTCnL1CkJICIzyT6RV/q7hQ/atbgfltlRTHBP/b9amItQre3QtSkqKiUGQlI/OngyC4ttSJSRjcOaJEhwHbAKeR39KkJWhgIcO/Zxt9fOrIiM0GmXMLSArwgJHFPMp2LBWsuAnJJBj6ClPsplKlAYM7lGZFNqLhBcbEbsbhA/E1GirVmWynYkp2nJGKu0BCzu3w4rKYHHfNUjCStvxEEqHhMyAasmCW0pEp3IEdzPpQT7tJLgWCPFklPmP8AzSXFgqG1RCz4hu4pxbanGtwCsDgcTQMlmCEAgkFfOKkN37ZW2lZTKTBJ3DjzoNstOtqgGRwFHt7Clq+YvT0oBTjBEc0ptlZSErmB2SMUCUsnan9iTihUmGPP8zQoOpN/eHuK8ffEH/456i//AD1/oKFCqVpHJde/vKP/AFR+oreL+9QoVlkYjH3z7/woM/dV9aFCqrmE8r96Wv7ooUKmCB/8tXv/ABov/mH/AFUKFXRUlfJ9jWi6N/vp9j/ChQq0Urp7v97V7J/U1cWnehQq2S2Ha2HA96C/vKoUKpem8MKqI9/ZKoUKyS2HwZ/+Lbz/APH/AI10jrz+92//AKZoUKvyf6ML/syn/wDHHtVLrX3GvahQrPHqNcVAvk1HcoUKlZX3f3BXP+uv/dCf9Y/WhQqYZ9F9N/cT/wCmmro/dX7GhQraOOm1/cR/oqhV/dz/AKqFCkSXoX96T/q/nVnrn/vVv6fpQoVKKNv+2c9qK7/ux/1ChQqyIK/+6P8Afanj9xP+kfrQoUKsdK/u6/8AWf0FW1rz/wBSf0oUKiiwV/Yj3P60Sf7k97n9DQoVIbtfuO+9PWn9sr3NChQPDgUKFCg//9k=" />
+              <!-- ▲▲▲ -->
+            </div>
+            <div>
+              <div class="gob__nombre">Gerry Cumpiano</div>
+              <div class="gob__cargo">Gobernador de Distrito · Club Rotario de San Juan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="envoltura">
+      <!-- ============================ ABSTRACT (INGLÉS) ============================ -->
+      <!-- ▼▼▼ EDITAR CADA MES: resumen en inglés ▼▼▼ -->
+      <section class="seccion abstract" lang="en" aria-label="Executive summary in English">
+        <p class="rotulo">In English · Executive summary</p>
+        <h2>August: Membership and New Club Development Month</h2>
+        <p>
+          August is
+          <b>Membership and New Club Development Month</b>
+          on the Rotary International calendar, and District 7000 uses it to renew its commitment to growth &mdash; in members and in new clubs alike. The central invitation is simple: get to know
+          your fellow members. Share your own Rotary story and listen to theirs, because
+          <b>stories, not statistics</b>
+          , are what build empathy, bridge different perspectives, and draw people to Rotary. Past District Governor Joe Otin sponsored no one during three years of reciting figures; once he began
+          telling stories, he sponsored more than thirty members and helped charter two new clubs.
+        </p>
+        <p>
+          Four concrete actions are proposed for clubs: submit nominations for the
+          <b>Rotary Service Awards</b>
+          , whose reference sheet lists criteria and deadlines; run a
+          <b>member interest or satisfaction survey</b>
+          &mdash; both available in Spanish through the Zone 33/34 membership toolbox &mdash; and act on the results; nominate a member for the
+          <b>Sylvia Whitlock Leadership Award</b>
+          , open from 1 to 31 August to any member in good standing regardless of gender; and work deliberately on
+          <b>club experience</b>
+          , drawing on ideas shared at the 2024 RI Convention.
+        </p>
+        <p>
+          Because the month also covers
+          <b>new club development</b>
+          , the letter reviews the flexible club models now available &mdash; satellite, cause-based, corporate, alumni-based and online clubs &mdash; illustrated by the Rotary Club of Helvetia
+          Happiness in Mauritius, a satellite focused on mental well-being that became its district's first cause-based club.
+        </p>
+        <p>
+          The letter also relaunches the
+          <b>Zone 33/34 EPIC Award</b>
+          for public image: last year only two clubs reached platinum and two reached bronze, and clubs must complete the July, August, and September tasks to remain eligible for platinum. It closes
+          with the
+          <b>Governor's official club visit schedule</b>
+          from August through October, the
+          <b>Assistant Governor team</b>
+          by area, and the
+          <b>district calendar</b>
+          through the June 2027 International Convention in Barcelona.
+        </p>
+      </section>
+      <!-- ▲▲▲ -->
+
+      <!-- ============================ INTRO ============================ -->
+      <!-- ▼▼▼ EDITAR CADA MES: párrafo de entrada ▼▼▼ -->
+      <section class="seccion intro">
+        <p class="drop">
+          Agosto es un mes significativo en el calendario de Rotary International: se celebra el Mes de la Membresía y la Creación de Nuevos Clubes. Es una oportunidad para renovar nuestro compromiso
+          con el crecimiento de la organización, tanto en socios como en clubes nuevos, y para fortalecer así la red global de servicio y compañerismo que es Rotary. Pero conviene decirlo con
+          claridad: crecer no es una meta de tabla ni una cuota que cumplir. Cada socio nuevo es un par de manos más para servir a Puerto Rico. Por eso este mes le proponemos a cada club una tarea
+          concreta y muy humana: dedicar tiempo a conocer mejor a sus socios, y preguntarse con honestidad qué experiencia les está ofreciendo.
+        </p>
+      </section>
+      <!-- ▲▲▲ -->
+
+      <!-- ============================ MES DE LA MEMBRESÍA ============================ -->
+      <section class="seccion" aria-labelledby="tit-membresia">
+        <p class="rotulo" id="tit-membresia">Agosto · Mes de la membresía y la creación de nuevos clubes</p>
+
+        <figure class="banner">
+          <img src="https://district7000.github.io/carta_mensual/imagenes/mes_membresia.png" alt="Afiche de Rotary International: agosto, Mes de la Membresía y la Creación de Nuevos Clubes" />
+        </figure>
+
+        <!-- ▼▼▼ EDITAR CADA MES: cuatro acciones destacadas ▼▼▼ -->
+        <div class="pilares-box" style="margin-bottom: 24px">
+          <h2 class="pilares-box__tit" id="tit-acciones">
+            <span aria-hidden="true">📌</span>
+            Cuatro acciones para este mes
+          </h2>
+          <p class="pilares-box__sub">Cuatro pasos concretos que su club puede dar en agosto para fortalecer la membresía.</p>
+          <div class="pilares">
+            <article class="pilar pilar--1">
+              <span class="pilar__n" aria-hidden="true">1</span>
+              <h3>Propongan candidatos a los Premios al Servicio</h3>
+              <p>
+                Rotary International y La Fundación Rotaria reconocen a socios, personas no afiliadas, exbecarios y clubes por su impacto. La hoja de referencia detalla los premios, los criterios de
+                elegibilidad y los plazos de cada uno.
+              </p>
+            </article>
+            <article class="pilar pilar--2">
+              <span class="pilar__n" aria-hidden="true">2</span>
+              <h3>Encuesten a los socios y actúen</h3>
+              <p>
+                La encuesta de intereses revela qué buscan los socios nuevos; la de satisfacción y la de salud del club miden la experiencia actual. Ambas están en español en la caja de herramientas
+                de la Zona 33/34.
+              </p>
+            </article>
+            <article class="pilar pilar--3">
+              <span class="pilar__n" aria-hidden="true">3</span>
+              <h3>Premio al Liderazgo Sylvia Whitlock</h3>
+              <p>
+                Del 1 al 31 de agosto, cualquier socio al día puede proponer a otro por su labor en pro del avance de las mujeres en Rotary, sin importar su género ni su antigüedad. Consultas:
+                riawards@rotary.org.
+              </p>
+            </article>
+            <article class="pilar pilar--4">
+              <span class="pilar__n" aria-hidden="true">4</span>
+              <h3>Exploren nuevos modelos de club</h3>
+              <p>
+                Clubes satélite, basados en causas, corporativos, de exbecarios y en línea amplían el alcance del distrito. Crear un club nuevo es tan parte de este mes como afiliar socios nuevos.
+              </p>
+            </article>
+          </div>
+        </div>
+        <!-- ▲▲▲ -->
+
+        <!-- ▼▼▼ EDITAR CADA MES: cita destacada ▼▼▼ -->
+        <div class="promesa" aria-labelledby="tit-cita" style="margin-bottom: 24px">
+          <div class="promesa__icono" aria-hidden="true">💬</div>
+          <div>
+            <h2 id="tit-cita">Las historias, no las estadísticas, atraen a las personas a Rotary</h2>
+            <p class="cita">
+              «Las historias humanas que contamos desencadenan emociones y crean conexiones especiales».
+              <span class="autor">Joe Otin, exgobernador del Distrito 9212 (Eritrea, Etiopía, Kenia y Sudán del Sur)</span>
+            </p>
+            <p>
+              Compartir nuestras historias crea puentes entre nuestras experiencias y las de los demás: nos ayuda a encontrar conexiones, a empatizar y a apreciar perspectivas distintas. Los datos
+              informan; las historias mueven a la gente a actuar.
+            </p>
+          </div>
+        </div>
+        <!-- ▲▲▲ -->
+
+        <div class="controles no-print">
+          <button class="btn-mini" type="button" onclick="abrirTodo(true)">Abrir todo</button>
+          <button class="btn-mini" type="button" onclick="abrirTodo(false)">Cerrar todo</button>
+        </div>
+
+        <!-- ▼▼▼ EDITAR CADA MES: cuerpo del mensaje del mes ▼▼▼ -->
+        <div class="discurso" id="acordeonMembresia">
+          <details open>
+            <summary>
+              <span class="num">I</span>
+              Por qué agosto importa
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Agosto es un mes significativo en el calendario de Rotary International, ya que se celebra el
+                <strong>Mes de la Membresía y la Creación de Nuevos Clubes</strong>
+                . Este período es una oportunidad para renovar nuestro compromiso con el crecimiento de nuestra organización, tanto en términos de socios como de la creación de nuevos clubes,
+                fortaleciendo así la red global de servicio y compañerismo que es Rotary.
+              </p>
+              <p>
+                Conviene recordar que el desarrollo de la membresía es responsabilidad de todos los socios durante los doce meses del año. Agosto no es una campaña de reclutamiento: es el mes en que
+                nos detenemos a examinar cómo estamos cuidando lo que ya tenemos. Rotary es una organización de personas, y sus socios son su activo principal.
+              </p>
+              <p>
+                Por lo tanto, es un momento ideal para centrarse en crear una experiencia significativa en el club. Un paso hacia ese objetivo es dedicar tiempo a conocer mejor a los socios. Esto se
+                logra compartiendo tu historia rotaria y escuchando las suyas.
+              </p>
+              <p>
+                Compartir nuestras historias crea puentes entre nuestras propias experiencias y las de los demás. Nos ayuda a encontrar conexiones, a empatizar con las circunstancias de otras
+                personas, y a comprender y apreciar diferentes perspectivas.
+              </p>
+              <p>
+                Los recursos de membresía de Rotary están reunidos en
+                <a href="https://www.rotary.org/es/about-rotary/membership" target="_blank" rel="noopener">rotary.org/es/about-rotary/membership</a>
+                y en el
+                <a href="https://my.rotary.org/es/learning-reference/learn-topic/membership" target="_blank" rel="noopener">Centro de formación de Mi Rotary</a>
+                .
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">II</span>
+              Celebra a la gente de acción con los Premios al Servicio de Rotary
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Rotary International y La Fundación Rotaria ofrecen varios premios para rendir homenaje a los socios de Rotary, a personas no afiliadas, a exbecarios y a clubes rotarios por sus
+                contribuciones e impacto.
+              </p>
+              <p>
+                La
+                <strong>hoja de referencia de los Premios al Servicio de Rotary</strong>
+                enumera los muchos premios de la organización e incluye información sobre propuestas, criterios de elegibilidad y plazos, así como imágenes de varios de los premios.
+              </p>
+              <p>
+                Vale la pena revisarla con calma en la reunión de junta, porque los plazos no coinciden entre sí: el Premio al Liderazgo Sylvia Whitlock se propone del 1 al 31 de agosto, mientras que
+                el Premio al Exbecario Distinguido admite propuestas del 1 de julio al 15 de septiembre. Varios reconocimientos exigen, además, que el logro se comunique a Rotary dentro del plazo,
+                aunque el club ya lo haya alcanzado.
+              </p>
+              <p>
+                <strong>Sugerencia para el club:</strong>
+                designen a una persona responsable de revisar la hoja de referencia y de anotar en el calendario del club las tres o cuatro fechas límite que les apliquen. Muchos clubes de nuestro
+                distrito hacen un trabajo premiable y lo pierden por no presentar la propuesta a tiempo.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">III</span>
+              Realiza una encuesta y actúa sobre los resultados
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Puedes utilizar la
+                <strong>Encuesta sobre los intereses de los socios</strong>
+                para descubrir los intereses de los socios nuevos y potenciales, y crear luego mejores conexiones ofreciéndoles lo que desean obtener de su membresía. La
+                <strong>Encuesta sobre la satisfacción de los socios</strong>
+                y la
+                <strong>Encuesta sobre la salud del club</strong>
+                miden, en cambio, la experiencia de quienes ya están dentro.
+              </p>
+              <p>
+                Las tres están disponibles en español, listas para descargar, en la
+                <a href="https://www.rotaryzones3334.org/es/membership-toolbox/" target="_blank" rel="noopener">caja de herramientas de membresía de nuestra propia Zona 33/34</a>
+                . No hay que inventar nada: el instrumento ya existe.
+              </p>
+              <p>
+                Ahora bien, una encuesta que nadie lee no sirve de nada. Rotary recomienda un proceso de cinco pasos: aplicar la encuesta, analizar los resultados, presentarlos al club, reservar
+                tiempo para que los socios pregunten y propongan, y acordar un plan de acción con fechas. El último paso &mdash; ejecutar &mdash; es el que marca la diferencia.
+              </p>
+              <p>
+                Un ejercicio sencillo y muy eficaz para acompañar la encuesta es el de las tres cajas:
+                <strong>eliminar, implementar y continuar</strong>
+                . Cada socio escribe en un papel qué quitaría del club, qué añadiría y qué conservaría. En quince minutos la junta tiene una radiografía honesta de la experiencia del club.
+              </p>
+              <p>
+                Complementa ese trabajo con los cursos de membresía del Centro de formación, que ayudan a desarrollar estrategias para involucrar a los socios en todas las etapas de su afiliación.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">IV</span>
+              Propón a socios que promueven el avance de las mujeres en Rotary
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                El
+                <strong>Premio al Liderazgo Sylvia Whitlock</strong>
+                rinde homenaje cada año a un socio de Rotary, independientemente de su sexo o antigüedad en la organización, por su labor activa en pro del avance de las mujeres en Rotary.
+              </p>
+              <p>
+                El premio lleva el nombre de la Dra. Sylvia Whitlock, y vale la pena conocer su historia. En 1982 se afilió a un club de Duarte, California, cuya membresía en Rotary International
+                había sido revocada porque en aquel momento los clubes rotarios no podían admitir mujeres. En 1987 el Tribunal Supremo de los Estados Unidos determinó que los clubes rotarios no podían
+                excluir a las mujeres, y ese mismo año Whitlock se convirtió en la primera mujer que presidió un club rotario. Es doctora en Educación, tuvo una larga trayectoria como educadora y
+                terapeuta, y pertenece al Club Rotario de Claremont, California.
+              </p>
+              <p>
+                Un grupo de rotarios estableció el premio en 2017. En 2021, la Directiva de Rotary International lo convirtió en un premio oficial de la organización, en apoyo a la meta de aumentar el
+                número de mujeres en Rotary, especialmente en cargos de liderazgo.
+              </p>
+              <p>
+                <strong>Plazo y requisitos:</strong>
+                las propuestas se reciben
+                <strong>del 1 al 31 de agosto</strong>
+                de cada año. Los rotarios y rotaractianos pueden proponer a cualquier socio que esté al día en el cumplimiento de sus obligaciones, sin importar su género ni la duración de su
+                afiliación. Nadie puede proponerse a sí mismo y el premio se recibe una sola vez. Cada año se selecciona un único galardonado. Las preguntas se envían a
+                <a href="mailto:riawards@rotary.org">riawards@rotary.org</a>
+                .
+              </p>
+              <p>
+                La primera galardonada fue Chin Mei Lu, del Club Rotario de Taipei Taimei (Taiwán). La galardonada de 2026 es Mayan Raslan, del Club Rotario de El Cairo Royal (Egipto): siendo
+                gobernadora del Distrito 2451 creó un premio especial para los clubes con más de un 25 % de mujeres y un comité distrital de empoderamiento femenino; hoy el 55 % de los socios de ese
+                distrito son mujeres. Un ejemplo concreto de que la meta se alcanza con estructura, no con buenas intenciones.
+              </p>
+              <p>
+                Más información en la
+                <a href="https://www.rotary.org/es/sylvia-whitlock-leadership-award-gallery" target="_blank" rel="noopener">galería de ganadores del premio</a>
+                .
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">V</span>
+              Qué desean los socios: cómo crear una gran experiencia en el club
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Durante una sesión paralela de la Convención de Rotary International 2024, titulada «Qué quieren los socios: cómo crear una gran experiencia en el club», los participantes tuvieron
+                quince segundos para compartir sus ideas sobre cómo crear una experiencia extraordinaria para sus socios.
+              </p>
+              <p>
+                Mencionaron formas creativas y eficaces de hacer que las reuniones sean más amenas, de mejorar la confianza de los socios en los líderes de club, de ofrecer oportunidades de servicio
+                que marquen la diferencia y de dedicar tiempo a que los socios se conecten entre sí.
+              </p>
+              <p>
+                Detrás de esas ideas hay un dato incómodo que conviene mirar de frente: las razones más frecuentes por las que un socio se da de baja son el costo y el tiempo &mdash; sobre todo cuando
+                no se le explicaron las responsabilidades antes de afiliarse &mdash;, la pérdida de interés en las reuniones, la sensación de no sentirse incluido y la impresión de que la experiencia
+                no cumplió con lo que esperaba. Casi todas esas causas están bajo el control directo del club.
+              </p>
+              <p>
+                Por eso la conservación de socios importa tanto como la captación. Un club que afilia cinco personas al año y pierde cinco no está creciendo: está reemplazando. Conviene revisar
+                cuántos socios se han dado de baja dentro de su primer año de afiliación, porque esa cifra dice más sobre la experiencia del club que cualquier otra.
+                <strong>Comparte tu historia de éxito con nosotros.</strong>
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">VI</span>
+              Las historias, no las estadísticas, atraen a las personas a Rotary
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Joe Otin, exgobernador del Distrito 9212 (Eritrea, Etiopía, Kenia y Sudán del Sur), cuenta una historia que a muchos nos resultará familiar. Cuando se afilió al Club Rotario de Nairobi
+                East le explicaron que un buen rotario se distinguía por su asistencia, por sus donaciones a La Fundación Rotaria y, sobre todo, por su capacidad de traer socios nuevos.
+              </p>
+              <p>
+                Como trabajaba en investigación de mercados y las cifras eran su oficio, se aprendió de memoria todas las estadísticas importantes de Rotary y las recitaba a la menor oportunidad.
+                Creía estar promoviendo su club; en realidad estaba aburriendo a su interlocutor. En tres años de datos y porcentajes no logró afiliar a una sola persona. Mientras tanto, otros socios
+                simplemente invitaban gente a almorzar, y esos invitados terminaban afiliándose en uno o dos meses.
+              </p>
+              <p>
+                El cambio le llegó por casualidad. Almorzando con una periodista, mencionó de pasada un evento rotario del fin de semana anterior: su club había entregado unas facilidades deportivas a
+                una escuela de un barrio marginal. La historia la cautivó tanto que ella misma le pidió que la invitara a una reunión del club. Fue la primera persona que apadrinó sin tener que
+                insistirle. Aquella periodista, Carole Kimutai, llegó con el tiempo a ser una de las presidentas más recordadas del club.
+              </p>
+              <p>
+                Los resultados hablan solos: cero socios en tres años de estadísticas; más de treinta socios apadrinados en los dieciséis años siguientes, además de un club nuevo con más de treinta y
+                cinco socios fundadores que, a su vez, ya organizó otro.
+              </p>
+              <p>
+                <strong>La lección para nuestros clubes:</strong>
+                cuando alguien pregunte por el pin, no le recitemos cuántos casos de polio quedan en el mundo. Contémosle qué sentimos la última vez que entregamos algo a una comunidad. Los datos
+                informan; las historias mueven a la gente a actuar. Puede leer el relato completo en
+                <a href="https://rotarybloges.org/2019/06/13/si-quieres-atraer-a-la-gente-a-rotary-cuentales-historias-no-les-ofrezcas-estadisticas/" target="_blank" rel="noopener">
+                  Las voces de Rotary
+                </a>
+                .
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">VII</span>
+              Fomentar la felicidad y la amistad
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                El Club Rotario de Helvetia Happiness (Mauricio) comenzó como club satélite centrado en la felicidad y el bienestar de sus socios. Su fundador, Syam V. D. Mudhoo, partió de una
+                observación honesta: los rotarios nos dedicamos al servicio, pero no somos inmunes a nuestras propias dificultades, y esas dificultades afectan nuestra capacidad de ayudar a los demás.
+              </p>
+              <p>
+                La idea nació al leer el énfasis que el entonces presidente de RI, Gordon R. McInally, puso en la salud mental, y la constatación de que los actos de bondad protegen el bienestar de
+                quien los realiza. El 8 de mayo, aquel club satélite se convirtió en club independiente y pasó a ser el primer club basado en causas de su distrito, el 9220.
+              </p>
+              <p>
+                Hoy desarrolla talleres y programas de radio dirigidos a la comunidad para combatir estereotipos y enseñar a promover el bienestar mental. Su historia despertó tanto interés que varios
+                exgobernadores han preguntado cómo replicar el modelo en sus zonas.
+              </p>
+              <p>
+                Puede leer el relato completo, en inglés, en
+                <a href="https://blog.rotary.org/2024/06/18/happiness-rotary-club-focuses-on-mental-well-being/" target="_blank" rel="noopener">Rotary Voices</a>
+                .
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              <span class="num">VIII</span>
+              La otra mitad del mes: crear clubes nuevos
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <p>
+                Solemos hablar de agosto como el mes de la membresía y olvidamos la segunda mitad de su nombre:
+                <strong>y la creación de nuevos clubes</strong>
+                . Ambas cosas van juntas. A veces la persona que no encaja en el horario, el formato o el costo de nuestro club encajaría perfectamente en otro que todavía no existe.
+              </p>
+              <p>Rotary ofrece hoy una flexibilidad considerable para diseñar clubes. Entre los modelos disponibles:</p>
+              <p>
+                <strong>Club satélite:</strong>
+                un grupo que se reúne aparte bajo el amparo de un club patrocinador, hasta que alcanza la fuerza necesaria para independizarse. Es el camino que siguió Helvetia Happiness.
+                <br />
+                <strong>Club basado en causas:</strong>
+                se organiza alrededor de un tema &mdash; salud mental, medioambiente, alfabetización &mdash; que da identidad y propósito a la membresía.
+                <br />
+                <strong>Club corporativo:</strong>
+                sus socios provienen de una misma empresa o institución, que apoya su participación.
+                <br />
+                <strong>Club de exbecarios:</strong>
+                reúne a exalumnos de los programas de Rotary, un grupo que ya conoce la organización y suele estar dispuesto a servir.
+                <br />
+                <strong>Club en línea:</strong>
+                el modelo de nuestro propio e-Club de Puerto Rico y Las Américas, que elimina la barrera geográfica.
+                <br />
+                <strong>Club Rotaract:</strong>
+                para profesionales jóvenes desde los 18 años, con afiliación dual permitida.
+              </p>
+              <p>
+                <strong>Reto para este año:</strong>
+                que cada club del Distrito 7000 se haga dos preguntas en su próxima reunión de junta. ¿Hay en nuestro pueblo un grupo de personas que quisiera servir pero no puede con nuestro formato
+                actual? ¿Qué modelo de club les serviría? Si aparece una respuesta, comuníquense con su Asistente de Gobernador; para eso están.
+              </p>
+            </div>
+          </details>
+        </div>
+        <!-- ▲▲▲ -->
+
+        <div class="epic" style="margin-top: 24px">
+          <h2 id="tit-recursos">Recursos para el comité de membresía del club</h2>
+          <p>Todo lo mencionado en esta sección está disponible en línea y en español. Estos son los enlaces directos:</p>
+          <ul class="recursos">
+            <li>
+              <a href="https://www.rotaryzones3334.org/es/membership-toolbox/" target="_blank" rel="noopener">Caja de herramientas de membresía · Zona 33/34</a>
+              <span class="detalle">Encuestas de intereses, de satisfacción y de salud del club, en formato descargable.</span>
+            </li>
+            <li>
+              <a href="https://www.rotaryzones3334.org/es/club-membership-committee/" target="_blank" rel="noopener">Comité de membresía del club · Zona 33/34</a>
+              <span class="detalle">Modelos de correo, guiones para «Descubra Rotary» y materiales de seguimiento.</span>
+            </li>
+            <li>
+              <a href="https://my.rotary.org/es/learning-reference/learn-topic/membership" target="_blank" rel="noopener">Centro de formación de Mi Rotary · Membresía</a>
+              <span class="detalle">Cursos en línea gratuitos sobre captación, involucramiento y conservación de socios.</span>
+            </li>
+            <li>
+              <a href="https://www.rotary.org/es/sylvia-whitlock-leadership-award-gallery" target="_blank" rel="noopener">Premio al Liderazgo Sylvia Whitlock</a>
+              <span class="detalle">Requisitos, plazo del 1 al 31 de agosto y galería de galardonados.</span>
+            </li>
+            <li>
+              <a href="https://www.rotary.org/es/about-rotary/membership" target="_blank" rel="noopener">Membresía en Rotary International</a>
+              <span class="detalle">Página general sobre afiliación, modelos de club y familia de Rotary.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================ EPIC AWARD ============================ -->
+      <section class="seccion" aria-labelledby="tit-epic">
+        <p class="rotulo">Imagen pública · Zona 33/34</p>
+
+        <figure class="banner">
+          <img src="https://district7000.github.io/carta_mensual/imagenes/epic_award.png" alt="Emblema del EPIC Award de Imagen Pública de las Zonas 33 y 34 de Rotary" />
+        </figure>
+
+        <div class="epic">
+          <h2 id="tit-epic">Rotary Zona 33/34: tareas mensuales del EPIC Award</h2>
+          <p>Regresan los EPIC Awards de nuestra zona de Imagen Pública.</p>
+          <p>
+            En el año 2025-2026 solamente dos clubes obtuvieron el premio platino, el máximo galardón &mdash; El Vigía y Yauco &mdash;, y dos clubes obtuvieron el premio de bronce &mdash; Juncos y
+            Rotaract PUCPR. ¡Este año vamos por más!
+          </p>
+          <p>
+            Los exhortamos a motivarse, a cumplir con las tareas de estos premios y a lograr que su club se destaque no solo en nuestro Distrito 7000, sino también en nuestra Zona 33/34. Trabajemos
+            juntos para que la imagen pública de Rotary se exalte y demos a conocer nuestros proyectos.
+          </p>
+          <div class="aviso">
+            <p>
+              <strong>Importante:</strong>
+              es indispensable comenzar ahora. La primera tarea correspondía a julio y, para poder aspirar al premio platino, hay que cumplir con las tres primeras tareas: julio, agosto y septiembre.
+            </p>
+          </div>
+          <p style="margin-top: 18px">
+            <a class="btn-enlace" href="https://www.rotaryzones3334.org/public-image/epic-award/" target="_blank" rel="noopener">
+              Ver las tareas mensuales del EPIC Award
+              <span aria-hidden="true">↗</span>
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================ VISITAS DEL GOBERNADOR ============================ -->
+      <section class="seccion" aria-labelledby="tit-visitas">
+        <p class="rotulo" id="tit-visitas">Programa de visitas del Gobernador</p>
+        <div class="discurso">
+          <details>
+            <summary>
+              Calendario de visitas a los clubes · 14 visitas de agosto a octubre
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <div class="tabla-caja">
+                <table>
+                  <caption>Calendario oficial de visitas a los clubes · agosto a octubre de 2026</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Fecha</th>
+                      <th scope="col">Club</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fecha">20 de agosto</td>
+                      <td>Club Juncos</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">21 de agosto</td>
+                      <td>Club Dorado</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">4 de septiembre</td>
+                      <td>Club Fajardo</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">5 de septiembre</td>
+                      <td>Club Psy de Ponce</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">8 de septiembre</td>
+                      <td>Club Manatí</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">18 de septiembre</td>
+                      <td>Club Aguada</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">22 de septiembre</td>
+                      <td>Club Río Piedras</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">25 de septiembre</td>
+                      <td>Club Carolina</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">30 de septiembre</td>
+                      <td>Club Yauco</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">1 de octubre</td>
+                      <td>Club Perla del Sur</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">2 de octubre</td>
+                      <td>Club El Vigía (mediodía)</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">2 de octubre</td>
+                      <td>Club San Germán</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">7 de octubre</td>
+                      <td>e-Club de Puerto Rico y Las Américas</td>
+                    </tr>
+                    <tr>
+                      <td class="fecha">13 de octubre</td>
+                      <td>Club Mayagüez</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============================ ASISTENTES DEL GOBERNADOR ============================ -->
+      <section class="seccion" aria-labelledby="tit-asistentes">
+        <p class="rotulo" id="tit-asistentes">Asistentes del Gobernador</p>
+
+        <div class="equipo equipo--jefe">
+          <article class="persona persona--jefe">
+            <img
+              class="persona__foto"
+              id="fotoPilar"
+              src="https://district7000.github.io/carta_mensual/imagenes/OE_pilar_munoz.jpg"
+              data-alterna="https://district7000.github.io/carta_mensual/imagenes/OE_pilar_munoz%20.jpg"
+              alt="Retrato de Pilar Muñoz-Nazario, Chief of Staff del Gobernador" />
+            <div class="persona__inicial" id="inicialPilar" hidden aria-hidden="true">PM</div>
+            <span class="persona__area">Chief of Staff</span>
+            <p class="persona__nombre">Pilar Muñoz-Nazario</p>
+            <p class="persona__club">Club Rotario El Vigía</p>
+            <p class="persona__correo"><a href="mailto:pilar@munoznazario.com">pilar@munoznazario.com</a></p>
+          </article>
+        </div>
+
+        <div class="carrusel">
+          <div class="carrusel__pista" id="pistaAsistentes" tabindex="0" role="region" aria-label="Asistentes de Gobernador por área. Use las flechas del teclado o los botones para desplazarse.">
+            <article class="persona">
+              <img class="persona__foto" src="https://district7000.github.io/carta_mensual/imagenes/AG1-luis_torres.jpg" alt="Retrato de Luis Torres-Cruz, Asistente de Gobernador del Área 1" />
+              <span class="persona__area">Área 1</span>
+              <p class="persona__nombre">Luis Torres-Cruz</p>
+              <p class="persona__club">e-Club de Puerto Rico y Las Américas</p>
+              <p class="persona__correo"><a href="mailto:luilo1550@gmail.com">luilo1550@gmail.com</a></p>
+            </article>
+
+            <article class="persona">
+              <img
+                class="persona__foto"
+                src="https://district7000.github.io/carta_mensual/imagenes/AG2-ramonita_santiago.jpg"
+                alt="Retrato de Ramonita Santiago Hernández, Asistente de Gobernadora del Área 2" />
+              <span class="persona__area">Área 2</span>
+              <p class="persona__nombre">Ramonita Santiago Hernández</p>
+              <p class="persona__club">Club Rotario de Manatí</p>
+              <p class="persona__correo"><a href="mailto:farmacialacaridad@yahoo.com">farmacialacaridad@yahoo.com</a></p>
+            </article>
+
+            <article class="persona">
+              <img
+                class="persona__foto"
+                src="https://district7000.github.io/carta_mensual/imagenes/AG3-carmencita_mitanda.jpg"
+                alt="Retrato de Carmencita Miranda, Asistente de Gobernadora del Área 3" />
+              <span class="persona__area">Área 3</span>
+              <p class="persona__nombre">Carmencita Miranda</p>
+              <p class="persona__club">Club Rotario de Quebradillas</p>
+              <p class="persona__correo"><a href="mailto:delcarmn.miranda@gmail.com">delcarmn.miranda@gmail.com</a></p>
+            </article>
+
+            <article class="persona">
+              <img class="persona__foto" src="https://district7000.github.io/carta_mensual/imagenes/AG5-janice_lugo.jpg" alt="Retrato de Janice Lugo Muñoz, Asistente de Gobernadora del Área 5" />
+              <span class="persona__area">Área 5</span>
+              <p class="persona__nombre">Janice Lugo Muñoz</p>
+              <p class="persona__club">Club Rotario de Yauco</p>
+              <p class="persona__correo"><a href="mailto:jael_nice@hotmail.com">jael_nice@hotmail.com</a></p>
+            </article>
+
+            <article class="persona">
+              <img
+                class="persona__foto"
+                src="https://district7000.github.io/carta_mensual/imagenes/AG6-astrid_ferrer.jpg"
+                alt="Retrato de Astrid Ferrer Santiago, Asistente de Gobernadora del Área 6" />
+              <span class="persona__area">Área 6</span>
+              <p class="persona__nombre">Astrid Ferrer Santiago</p>
+              <p class="persona__club">Club Rotario de Guayama</p>
+              <p class="persona__correo"><a href="mailto:astrid_ferrersantiago@hotmail.com">astrid_ferrersantiago@hotmail.com</a></p>
+            </article>
+
+            <article class="persona">
+              <img
+                class="persona__foto"
+                src="https://district7000.github.io/carta_mensual/imagenes/AG7-francisco_brigantty.jpeg"
+                alt="Retrato de Paco Brigantty-Rivera, Asistente de Gobernador del Área 7" />
+              <span class="persona__area">Área 7</span>
+              <p class="persona__nombre">Paco Brigantty-Rivera</p>
+              <p class="persona__club">Club Rotario de Juncos</p>
+              <p class="persona__correo"><a href="mailto:f.brigantty@hotmail.com">f.brigantty@hotmail.com</a></p>
+            </article>
+          </div>
+          <div class="carrusel__mandos no-print">
+            <button class="btn-carr" type="button" id="carrAnterior">‹ Anterior</button>
+            <button class="btn-carr" type="button" id="carrAuto">Pausar</button>
+            <button class="btn-carr" type="button" id="carrSiguiente">Siguiente ›</button>
+            <p class="carrusel__estado" id="carrEstado" aria-live="polite" aria-atomic="true">1 de 6</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PRÓXIMAS ACTIVIDADES ============================ -->
+      <section class="seccion" aria-labelledby="tit-agenda">
+        <p class="rotulo" id="tit-agenda">Próximas actividades del Distrito 7000</p>
+        <div class="discurso">
+          <details>
+            <summary>
+              Calendario oficial del distrito · de agosto a la Convención de Barcelona
+              <span class="chev" aria-hidden="true">▾</span>
+            </summary>
+            <div class="cuerpo">
+              <ul class="agenda">
+                <li>
+                  <span class="cuando">15 de agosto</span>
+                  <span class="que">
+                    Seminario Distrital de Imagen Pública
+                    <span class="detalle">7:00 p. m. a 9:00 p. m. · por Zoom</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">22 de agosto</span>
+                  <span class="que">
+                    Seminario Distrital de Membresía y Fundación
+                    <span class="detalle">8:30 a. m. a 3:00 p. m. · presencial, Club Rotario de Río Piedras · costo: $25</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">29 de agosto</span>
+                  <span class="que">
+                    Seminario de Liderazgo y reunión de moderadores y directores de los comités de la avenida de juventud de los clubes patrocinadores
+                    <span class="detalle">5:30 a 1:00 p. m. (horario por confirmar)</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">19 de septiembre</span>
+                  <span class="que">
+                    Limpieza de Costas
+                    <span class="detalle">Actividad de Interact</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">3 y 4 de octubre</span>
+                  <span class="que">
+                    RLI · Instituto de Liderazgo Rotario
+                    <span class="detalle">Partes 1, 2 y 3</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">21 de noviembre</span>
+                  <span class="que">Comparte tu Compra</span>
+                </li>
+                <li>
+                  <span class="cuando">6 y 7 de febrero</span>
+                  <span class="que">
+                    RLI · Instituto de Liderazgo Rotario
+                    <span class="detalle">Parte 3 y graduación</span>
+                  </span>
+                </li>
+                <li class="tentativa">
+                  <span class="cuando">12 al 15 de febrero</span>
+                  <span class="que">
+                    RYLA
+                    <span class="detalle">Fecha tentativa</span>
+                  </span>
+                </li>
+                <li class="tentativa">
+                  <span class="cuando">20 de febrero</span>
+                  <span class="que">
+                    Gala Paul Harris
+                    <span class="detalle">Fecha tentativa</span>
+                  </span>
+                </li>
+                <li class="tentativa">
+                  <span class="cuando">Por anunciar</span>
+                  <span class="que">
+                    Conferencia de Distrito
+                    <span class="detalle">Aún no se ha fijado la fecha</span>
+                  </span>
+                </li>
+                <li>
+                  <span class="cuando">26 al 30 de junio</span>
+                  <span class="que">
+                    Convención Internacional de Rotary
+                    <span class="detalle">Barcelona, España</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============================ CIERRE ============================ -->
+      <section class="seccion cierre" aria-label="Cierre">
+        <p>Cada socio nuevo es una historia más que Rotary puede contar. Este agosto, salgamos a escuchar y a invitar.</p>
+        <span class="firma-lema">Genera un impacto duradero · 2026-2027</span>
+      </section>
+    </main>
+
+    <!-- ============================ PIE ============================ -->
+    <footer>
+      <div class="envoltura">
+        <!-- ▼▼▼ EDITAR CADA MES / SEGÚN INDICACIÓN: firma y autoría ▼▼▼ -->
+        <div class="firma-caja">
+          <div class="firmante">
+            <img
+              class="firma-foto"
+              src="data:image/jpeg;base64,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"
+              alt="Retrato de Gerry Cumpiano, Gobernador del Distrito 7000" />
+            <div>
+              <div class="firma-nombre">Gerry Cumpiano</div>
+              <div class="firma-cargo">Gobernador de Distrito 2026-2027 · Club Rotario de San Juan</div>
+            </div>
+          </div>
+          <div class="firmante">
+            <img class="firma-foto" src="https://district7000.github.io/carta_mensual/imagenes/secretaria.jpg" alt="Retrato de Iris Violeta Díaz-Figueroa, Secretaria del Distrito 7000" />
+            <div>
+              <div class="firma-nombre">Iris Violeta Díaz-Figueroa</div>
+              <div class="firma-cargo">Secretaria de Distrito · e-Club de Puerto Rico y Las Américas</div>
+            </div>
+          </div>
+        </div>
+        <!-- ▲▲▲ -->
+        <div class="foot-web">
+          <div>Distrito Rotario 7000 · Puerto Rico</div>
+          <div class="web"><a href="https://distritorotario7000.org/" target="_blank" rel="noopener">distritorotario7000.org</a></div>
+        </div>
+        <div class="foot-nota">
+          Carta mensual del Gobernador · Año rotario 2026-2027. El lema oficial de Rotary International para 2026-2027 es
+          <span style="color: #fafafa">«Genera un impacto duradero»</span>
+          (
+          <span lang="en">Create Lasting Impact</span>
+          ), del Presidente de RI Olayinka H. Babalola. «Rotary» y la rueda rotaria son marcas registradas de Rotary International.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Foto de la Chief of Staff: si el nombre de archivo no resuelve, se prueba
+      // la variante con espacio y, en ultimo caso, se muestran las iniciales.
+      (function () {
+        var foto = document.getElementById('fotoPilar');
+        if (!foto) return;
+        foto.addEventListener('error', function () {
+          var alterna = foto.getAttribute('data-alterna');
+          if (alterna) {
+            foto.removeAttribute('data-alterna');
+            foto.src = alterna;
+            return;
+          }
+          foto.hidden = true;
+          var inicial = document.getElementById('inicialPilar');
+          if (inicial) inicial.hidden = false;
+        });
+      })();
+
+      // Abrir / cerrar todas las secciones del acordeon del mensaje del mes
+      function abrirTodo(estado) {
+        document.querySelectorAll('#acordeonMembresia details').forEach(function (d) {
+          d.open = estado;
+        });
+      }
+
+      // ===================== CARRUSEL DE ASISTENTES =====================
+      (function () {
+        var pista = document.getElementById('pistaAsistentes');
+        if (!pista) return;
+        var tarjetas = Array.prototype.slice.call(pista.querySelectorAll('.persona'));
+        var estado = document.getElementById('carrEstado');
+        var btnAuto = document.getElementById('carrAuto');
+        var btnPrev = document.getElementById('carrAnterior');
+        var btnNext = document.getElementById('carrSiguiente');
+        if (tarjetas.length < 2) return;
+
+        var menosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var temporizador = null;
+        var enMarcha = false;
+        var suspendido = false;
+        var esperaScroll = null;
+
+        function paso() {
+          return tarjetas[1].offsetLeft - tarjetas[0].offsetLeft || pista.clientWidth;
+        }
+        function indice() {
+          return Math.round(pista.scrollLeft / paso());
+        }
+        function alFinal() {
+          return pista.scrollLeft + pista.clientWidth >= pista.scrollWidth - 4;
+        }
+        function refrescar() {
+          estado.textContent = indice() + 1 + ' de ' + tarjetas.length;
+        }
+        function irA(i) {
+          if (i < 0) i = tarjetas.length - 1;
+          if (i > tarjetas.length - 1) i = 0;
+          pista.scrollTo({left: i * paso(), behavior: menosMovimiento ? 'auto' : 'smooth'});
+        }
+        function siguiente() {
+          alFinal() ? irA(0) : irA(indice() + 1);
+        }
+        function anterior() {
+          pista.scrollLeft <= 4 ? irA(tarjetas.length - 1) : irA(indice() - 1);
+        }
+        function arrancar() {
+          if (enMarcha) return;
+          enMarcha = true;
+          temporizador = setInterval(siguiente, 4500);
+          btnAuto.textContent = 'Pausar';
+          btnAuto.setAttribute('aria-label', 'Pausar el avance automático del carrusel');
+        }
+        function detener(recordar) {
+          clearInterval(temporizador);
+          if (recordar !== false) enMarcha = false;
+          btnAuto.textContent = 'Reanudar';
+          btnAuto.setAttribute('aria-label', 'Reanudar el avance automático del carrusel');
+        }
+        // Pausa temporal mientras el cursor o el foco estan encima
+        function pausaTemporal() {
+          if (enMarcha && !suspendido) {
+            suspendido = true;
+            clearInterval(temporizador);
+          }
+        }
+        function reanudaTemporal() {
+          if (enMarcha && suspendido) {
+            suspendido = false;
+            temporizador = setInterval(siguiente, 4500);
+          }
+        }
+
+        btnAuto.addEventListener('click', function () {
+          enMarcha ? detener() : arrancar();
+        });
+        btnPrev.addEventListener('click', function () {
+          detener();
+          anterior();
+        });
+        btnNext.addEventListener('click', function () {
+          detener();
+          siguiente();
+        });
+        pista.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            detener();
+            siguiente();
+          }
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            detener();
+            anterior();
+          }
+        });
+        pista.addEventListener('mouseenter', pausaTemporal);
+        pista.addEventListener('mouseleave', reanudaTemporal);
+        pista.addEventListener('focusin', pausaTemporal);
+        pista.addEventListener('focusout', reanudaTemporal);
+        pista.addEventListener('scroll', function () {
+          clearTimeout(esperaScroll);
+          esperaScroll = setTimeout(refrescar, 120);
+        });
+        window.addEventListener('resize', refrescar);
+
+        refrescar();
+        // Si la persona pidio menos movimiento, el carrusel arranca detenido.
+        if (menosMovimiento) {
+          detener();
+        } else {
+          arrancar();
+        }
+      })();
+      // Al imprimir (boton o Ctrl+P): abrir todo el acordeon; luego restaurar.
+      window.addEventListener('beforeprint', function () {
+        document.querySelectorAll('.discurso details').forEach(function (d) {
+          d.dataset._abierto = d.open ? '1' : '0';
+          d.open = true;
+        });
+      });
+      window.addEventListener('afterprint', function () {
+        document.querySelectorAll('.discurso details').forEach(function (d) {
+          d.open = d.dataset._abierto === '1';
+        });
+      });
+      function imprimirCarta() {
+        window.print();
+      }
+    </script>
+  </body>
+</html>
