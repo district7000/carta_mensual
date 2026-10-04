@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+  <title id="t">Octubre: Mes del Desarrollo Económico Comunitario</title>
+  <desc id="d">Ilustración de un pueblo con pequeños negocios, una planta que crece de unas monedas y el texto del mes.</desc>
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17458f"/>
+      <stop offset="0.7" stop-color="#005daa"/>
+      <stop offset="1" stop-color="#0b2c63"/>
+    </linearGradient>
+    <radialGradient id="sol" cx="0.85" cy="0.1" r="0.5">
+      <stop offset="0" stop-color="#f7a81b" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f7a81b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#cielo)"/>
+  <rect width="1200" height="520" fill="url(#sol)"/>
+  <!-- Texto -->
+  <text x="70" y="110" font-family="Source Sans 3, Segoe UI, sans-serif" font-weight="700" font-size="26" letter-spacing="5" fill="#f7a81b">OCTUBRE · ROTARY INTERNATIONAL</text>
+  <text x="70" y="185" font-family="Merriweather, Georgia, serif" font-weight="900" font-size="58" fill="#ffffff">Mes del Desarrollo</text>
+  <text x="70" y="255" font-family="Merriweather, Georgia, serif" font-weight="900" font-size="58" fill="#ffffff">Económico Comunitario</text>
+  <text x="70" y="310" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="27" fill="#dce7f6">Cuando el negocio de la esquina crece, crece el barrio entero.</text>
+  <!-- Suelo -->
+  <rect x="0" y="440" width="1200" height="80" fill="#0b2c63"/>
+  <rect x="0" y="436" width="1200" height="6" fill="#f7a81b"/>
+  <!-- Casitas / negocios -->
+  <g>
+    <rect x="70" y="360" width="120" height="78" fill="#00778b"/>
+    <polygon points="62,362 130,322 198,362" fill="#f7a81b"/>
+    <rect x="95" y="392" width="30" height="46" fill="#0b2c63"/>
+    <rect x="140" y="378" width="34" height="26" fill="#fbfaf6"/>
+    <rect x="210" y="380" width="100" height="58" fill="#6d2c82"/>
+    <rect x="204" y="368" width="112" height="16" fill="#fbfaf6"/>
+    <g fill="#f7a81b"><rect x="204" y="368" width="16" height="16"/><rect x="236" y="368" width="16" height="16"/><rect x="268" y="368" width="16" height="16"/><rect x="300" y="368" width="16" height="16"/></g>
+    <rect x="245" y="400" width="30" height="38" fill="#0b2c63"/>
+    <rect x="330" y="350" width="90" height="88" fill="#a05a00"/>
+    <polygon points="322,352 375,318 428,352" fill="#fbfaf6"/>
+    <rect x="345" y="370" width="24" height="22" fill="#fbfaf6"/>
+    <rect x="382" y="370" width="24" height="22" fill="#fbfaf6"/>
+    <rect x="362" y="404" width="26" height="34" fill="#0b2c63"/>
+  </g>
+  <!-- Monedas y planta -->
+  <g transform="translate(930 230)">
+    <ellipse cx="0" cy="200" rx="92" ry="20" fill="#8a5a00"/>
+    <rect x="-92" y="170" width="184" height="30" fill="#f7a81b"/>
+    <ellipse cx="0" cy="170" rx="92" ry="20" fill="#ffc35a"/>
+    <ellipse cx="0" cy="150" rx="78" ry="17" fill="#8a5a00"/>
+    <rect x="-78" y="126" width="156" height="24" fill="#f7a81b"/>
+    <ellipse cx="0" cy="126" rx="78" ry="17" fill="#ffc35a"/>
+    <path d="M0 126 C 0 70, 0 40, 0 -10" stroke="#7fd18b" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M0 60 C -70 50, -95 0, -100 -30 C -40 -25, -5 10, 0 60 Z" fill="#7fd18b"/>
+    <path d="M0 20 C 60 15, 95 -30, 100 -70 C 40 -60, 5 -25, 0 20 Z" fill="#a6e3ad"/>
+    <circle cx="0" cy="-22" r="16" fill="#a6e3ad"/>
+  </g>
+</svg>
