@@ -1636,11 +1636,29 @@
 
       /* ==================== BORRADOR (quitar al publicar) ==================== */
       .borrador { background: #fff4d6; border: 2px dashed var(--oro-osc); border-radius: var(--radio); padding: 14px 18px; color: var(--tinta); }
-      .galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 8px; }
-      .galeria figure { margin: 0; }
-      .galeria img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radio); display: block; }
-      .galeria__pie { font-size: 0.9rem; color: var(--tinta-suave); margin: 0 0 18px; }
-      @media (max-width: 560px) { .galeria { grid-template-columns: 1fr; } }
+      /* ==================== CARRUSEL DE FOTOS (centenario) ==================== */
+      .fotos { margin: 0 0 22px; border-radius: var(--radio); }
+      .fotos:focus-visible { outline: 3px solid var(--oro); outline-offset: 4px; }
+      .fotos__diapo { margin: 0; }
+      .fotos__diapo[hidden] { display: none; }
+      .fotos__marco { position: relative; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radio); background: var(--azul-prof); box-shadow: var(--sombra); }
+      .fotos__fondo { position: absolute; inset: -24px; width: calc(100% + 48px); height: calc(100% + 48px); object-fit: cover; filter: blur(22px) brightness(0.6); }
+      .fotos__img { position: relative; display: block; width: 100%; height: 100%; object-fit: contain; }
+      .fotos__diapo figcaption { font-size: 0.92rem; color: var(--tinta-suave); text-align: center; margin: 10px 0 12px; min-height: 1.4em; }
+      .fotos__puntos { display: flex; justify-content: center; gap: 4px; margin-top: 8px; flex-wrap: wrap; }
+      .fotos__punto { width: 28px; height: 28px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; padding: 0; }
+      .fotos__punto::before { content: ""; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--azul); background: transparent; }
+      .fotos__punto[aria-current="true"]::before { background: var(--azul); }
+      .fotos__punto:focus-visible { outline: 3px solid var(--oro); border-radius: 50%; }
+      @media (max-width: 560px) { .fotos__marco { aspect-ratio: 4 / 3; } }
+      @media (prefers-reduced-motion: no-preference) { .fotos__diapo:not([hidden]) .fotos__img { animation: fotosEntra 0.35s ease; } }
+      @keyframes fotosEntra { from { opacity: 0.25; } to { opacity: 1; } }
+      @media print {
+        .fotos__pista { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .fotos__diapo[hidden] { display: block; }
+        .fotos__fondo { display: none; }
+        .fotos__marco { aspect-ratio: 4 / 3; box-shadow: none; background: #ffffff; }
+      }
       .foto-pendiente { border: 2px dashed var(--oro-osc); border-radius: var(--radio); background: var(--crema); padding: 26px 20px; text-align: center; margin: 0 0 18px; }
       .lista-hitos { margin: 8px 0 0; padding-left: 1.2em; }
       .lista-hitos li { margin-bottom: 8px; }
@@ -2166,18 +2184,66 @@
       <section class="seccion" aria-labelledby="tit-mayaguez">
         <p class="rotulo">Noticias del distrito · 1926-2026</p>
 
-        <figure class="banner" style="margin-bottom: 12px">
-          <img src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_1.jpg" alt="Socios del Club Rotario de Mayagüez reunidos en la Plaza José de Diego, junto al busto del patriota y la bandera de Puerto Rico, durante la ceremonia del centenario." />
-        </figure>
-        <div class="galeria">
-          <figure>
-            <img src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_2.jpg" alt="Una rotaria lee un mensaje durante la ceremonia del centenario, frente al monumento a José de Diego, acompañada por dos socios del club." />
-          </figure>
-          <figure>
-            <img src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_3.jpg" alt="Tres socias sonríen en la Gran Gala Centenaria dentro de un marco decorado con estrellas doradas, el número 100 y la leyenda «Est. 1926»." />
-          </figure>
+        <!-- Carrusel de fotos del centenario: para añadir una foto, copie un bloque <figure class="fotos__diapo"> (con hidden) y cambie imagen, texto alternativo y pie -->
+        <div class="fotos" id="fotosMayaguez" role="region" aria-roledescription="carrusel" aria-label="Fotos del centenario del Club Rotario de Mayagüez. Use las flechas del teclado o los botones para pasar las fotos." tabindex="0">
+          <div class="fotos__pista">
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 1 de 7">
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_1.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_1.jpg" alt="Socios del Club Rotario de Mayagüez reunidos en la Plaza José de Diego, junto al busto del patriota y la bandera de Puerto Rico, durante la ceremonia del centenario." loading="eager" />
+              </div>
+              <figcaption>Ceremonia del centenario en la Plaza José de Diego.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 2 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_4.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_4.jpg" alt="Cuatro rotarios sonríen junto a la tarja conmemorativa de granito negro con el emblema de Rotary, colocada en la pared del antiguo Hotel La Palma." loading="lazy" />
+              </div>
+              <figcaption>La tarja del antiguo Hotel La Palma, donde se fundó el club el 23 de octubre de 1926.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 3 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_2.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_2.jpg" alt="Una rotaria lee un mensaje durante la ceremonia del centenario, frente al monumento a José de Diego, acompañada por dos socios del club." loading="lazy" />
+              </div>
+              <figcaption>Lectura de un mensaje durante la ceremonia en la plaza.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 4 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_6.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_6.jpg" alt="Foto de grupo de más de treinta socios, familiares y jóvenes, vestidos de gala, ante los paneles de la historia del club: Servicio, Alegría, Compañerismo y Resiliencia." loading="lazy" />
+              </div>
+              <figcaption>Socios, familiares y jóvenes en la Gran Gala Centenaria.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 5 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_5.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_5.jpg" alt="Cuatro rotarios vestidos de gala posan sobre una alfombra roja frente a un panel con la rueda de Rotary; dos de ellos llevan medallas de homenaje." loading="lazy" />
+              </div>
+              <figcaption>Momento de homenaje durante la Gran Gala Centenaria.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 6 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_7.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_7.jpg" alt="Siete rotarios posan sobre la alfombra roja junto al atril; detrás, la pantalla anuncia los 100 años del Club Rotario de Mayagüez y un gran número 100 iluminado." loading="lazy" />
+              </div>
+              <figcaption>Reconocimientos en la Gran Gala Centenaria.</figcaption>
+            </figure>
+            <figure class="fotos__diapo" role="group" aria-roledescription="diapositiva" aria-label="Foto 7 de 7" hidden>
+              <div class="fotos__marco">
+                <img class="fotos__fondo" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_3.jpg" alt="" aria-hidden="true" loading="lazy" />
+                <img class="fotos__img" src="https://district7000.github.io/carta_mensual/imagenes/mayaguez_centenario_3.jpg" alt="Tres socias sonríen en la Gran Gala Centenaria dentro de un marco decorado con estrellas doradas, el número 100 y la leyenda «Est. 1926»." loading="lazy" />
+              </div>
+              <figcaption>Alegría en la gala: cien años desde 1926.</figcaption>
+            </figure>
+          </div>
+          <div class="carrusel__mandos no-print">
+            <button class="btn-carr" type="button" data-fotos="ant">‹ Anterior</button>
+            <p class="carrusel__estado" aria-live="polite" aria-atomic="true">Foto 1 de 7</p>
+            <button class="btn-carr" type="button" data-fotos="sig">Siguiente ›</button>
+          </div>
+          <div class="fotos__puntos no-print"><button class="fotos__punto" type="button" aria-label="Ver foto 1" aria-current="true"></button><button class="fotos__punto" type="button" aria-label="Ver foto 2"></button><button class="fotos__punto" type="button" aria-label="Ver foto 3"></button><button class="fotos__punto" type="button" aria-label="Ver foto 4"></button><button class="fotos__punto" type="button" aria-label="Ver foto 5"></button><button class="fotos__punto" type="button" aria-label="Ver foto 6"></button><button class="fotos__punto" type="button" aria-label="Ver foto 7"></button></div>
         </div>
-        <p class="galeria__pie">Ceremonia del centenario en la Plaza José de Diego y Gran Gala Centenaria del Club Rotario de Mayagüez.</p>
 
         <div class="epic">
           <h2 id="tit-mayaguez">Cien años de servicio: el Club Rotario de Mayagüez celebra su centenario</h2>
@@ -2204,7 +2270,7 @@
           <h3>La celebración</h3>
           <p>
             Para conmemorar el centenario, el club develó un <strong>Poste de la Paz</strong> en la Plaza José de Diego, como símbolo permanente de esperanza, unión y solidaridad
-            para la comunidad. Las actividades incluyeron también la develación de una tarja en el antiguo Hotel La Palma y una <strong>Gran Gala Centenaria</strong> el sábado
+            para la comunidad. También develó una tarja en el antiguo Hotel La Palma, el lugar donde se fundó el club en 1926, y celebró una <strong>Gran Gala Centenaria</strong> el sábado
             24 de octubre, Día Mundial contra la Polio. La gala recaudó fondos para Pongamos Fin a la Polio y estuvo dedicada al
             <strong>CPA Ángel Luis Rosas</strong>, socio del club y Pasado Gobernador de Distrito.
           </p>
@@ -2706,6 +2772,35 @@
       }
       window.addEventListener("hashchange", abrirDestino);
       window.addEventListener("load", abrirDestino);
+      /* Carrusel de fotos del centenario (sin avance automático) */
+      (function () {
+        var caja = document.getElementById("fotosMayaguez");
+        if (!caja) return;
+        var diapos = caja.querySelectorAll(".fotos__diapo");
+        var puntos = caja.querySelectorAll(".fotos__punto");
+        var estado = caja.querySelector(".carrusel__estado");
+        var actual = 0;
+        function ver(i) {
+          actual = (i + diapos.length) % diapos.length;
+          diapos.forEach(function (d, k) { d.hidden = k !== actual; });
+          puntos.forEach(function (b, k) { if (k === actual) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
+          estado.textContent = "Foto " + (actual + 1) + " de " + diapos.length;
+        }
+        caja.querySelector('[data-fotos="ant"]').addEventListener("click", function () { ver(actual - 1); });
+        caja.querySelector('[data-fotos="sig"]').addEventListener("click", function () { ver(actual + 1); });
+        puntos.forEach(function (b, k) { b.addEventListener("click", function () { ver(k); }); });
+        caja.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowLeft") { ver(actual - 1); e.preventDefault(); }
+          if (e.key === "ArrowRight") { ver(actual + 1); e.preventDefault(); }
+        });
+        var x0 = null;
+        caja.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+        caja.addEventListener("touchend", function (e) {
+          if (x0 === null) return;
+          var dx = e.changedTouches[0].clientX - x0; x0 = null;
+          if (Math.abs(dx) > 40) ver(actual + (dx < 0 ? 1 : -1));
+        });
+      })();
     </script>
   </body>
 </html>
