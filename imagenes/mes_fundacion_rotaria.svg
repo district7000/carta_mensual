@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+  <title id="t">Noviembre: Mes de La Fundación Rotaria</title>
+  <desc id="d">Ilustración de unas manos que sostienen un corazón dorado del que salen líneas hacia distintos puntos del mundo, con el texto del mes.</desc>
+  <defs>
+    <linearGradient id="cielo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17458f"/>
+      <stop offset="0.7" stop-color="#005daa"/>
+      <stop offset="1" stop-color="#0b2c63"/>
+    </linearGradient>
+    <radialGradient id="brillo" cx="0.8" cy="0.48" r="0.32">
+      <stop offset="0" stop-color="#f7a81b" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#f7a81b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="520" fill="url(#cielo)"/>
+  <rect width="1200" height="520" fill="url(#brillo)"/>
+  <!-- Globo esquemático -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="2">
+    <circle cx="965" cy="250" r="210"/>
+    <ellipse cx="965" cy="250" rx="105" ry="210"/>
+    <ellipse cx="965" cy="250" rx="210" ry="80"/>
+  </g>
+  <!-- Líneas del corazón hacia el mundo -->
+  <g stroke="#f7a81b" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"><line x1="965" y1="250" x2="965" y2="42"/><line x1="965" y1="250" x2="1128" y2="98"/><line x1="965" y1="250" x2="1172" y2="250"/><line x1="965" y1="250" x2="1172" y2="382"/><line x1="965" y1="250" x2="800" y2="98"/><line x1="965" y1="250" x2="752" y2="250"/><line x1="965" y1="250" x2="752" y2="382"/></g>
+  <g fill="none" stroke="#f7a81b" stroke-opacity="0.45" stroke-width="2"><circle cx="965" cy="42" r="17"/><circle cx="1128" cy="98" r="17"/><circle cx="1172" cy="250" r="17"/><circle cx="1172" cy="382" r="17"/><circle cx="800" cy="98" r="17"/><circle cx="752" cy="250" r="17"/><circle cx="752" cy="382" r="17"/></g>
+  <g fill="#fbfaf6"><circle cx="965" cy="42" r="9"/><circle cx="1128" cy="98" r="9"/><circle cx="1172" cy="250" r="9"/><circle cx="1172" cy="382" r="9"/><circle cx="800" cy="98" r="9"/><circle cx="752" cy="250" r="9"/><circle cx="752" cy="382" r="9"/></g>
+  <!-- Manos y corazón -->
+  <path d="M815 320 C835 370 895 400 965 400 L965 435 C885 435 815 400 780 345 Z" fill="#00778b" stroke="#ffffff" stroke-width="3"/>
+  <path d="M1115 320 C1095 370 1035 400 965 400 L965 435 C1045 435 1115 400 1150 345 Z" fill="#6d2c82" stroke="#ffffff" stroke-width="3"/>
+  <path d="M965 312 C870 255 885 175 935 175 C960 175 965 195 965 210 C965 195 970 175 995 175 C1045 175 1060 255 965 312 Z" fill="#f7a81b" stroke="#ffffff" stroke-width="4"/>
+  <!-- Texto -->
+  <text x="70" y="110" font-family="Source Sans 3, Segoe UI, sans-serif" font-weight="700" font-size="26" letter-spacing="5" fill="#f7a81b">NOVIEMBRE · ROTARY INTERNATIONAL</text>
+  <text x="70" y="185" font-family="Merriweather, Georgia, serif" font-weight="900" font-size="58" fill="#ffffff">Mes de</text>
+  <text x="70" y="255" font-family="Merriweather, Georgia, serif" font-weight="900" font-size="58" fill="#ffffff">La Fundación Rotaria</text>
+  <text x="70" y="315" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="27" fill="#dce7f6">Lo que un club no puede solo,</text>
+  <text x="70" y="350" font-family="Source Sans 3, Segoe UI, sans-serif" font-size="27" fill="#dce7f6">lo podemos todos juntos.</text>
+  <rect x="70" y="390" width="90" height="6" fill="#f7a81b"/>
+</svg>
